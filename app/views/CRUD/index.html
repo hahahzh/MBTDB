@@ -1,0 +1,44 @@
+#{extends 'CRUD/layout.html' /}
+#{set title:messages.get('crud.title') /}
+
+<div id="crudIndex">
+
+    <h2>&{'crud.index.title'}</h2>
+
+    <table border="0" cellpadding="5" cellspacing="2" width="100%" align="center" style="background-color: #CCCCCC;">
+        <thead>
+            <tr>
+                <th height="30px">&{'crud.index.objectType'}</th>
+            </tr>
+        </thead>
+        <tbody>
+
+	#{if session.admin_role=='1'}
+		#{if type.name=='AdminManagements' || type.name=='SeaLife_CHs' || type.name=='SeaLife_ENs' || type.name=='Target_CHs' || type.name=='Target_ENs'}
+          <tr style="text-align: left; BACKGROUND-COLOR: #EEEEEE;">
+              <td height="30px">
+                  <a href="${type.listAction}?role=${session.admin_role}&id=${session.admin_id}">&{type.name}</a>
+              </td>
+              <td class="crudNew" >
+                  
+              </td>
+          </tr>
+          #{/if}
+	#{/if}
+	#{if session.admin_role=='2'}
+		#{if type.name=='SeaLife_ENs' || type.name=='SeaLife_CHs' || type.name=='Target_CHs' || type.name=='Target_ENs'}
+          <tr style="text-align: left; BACKGROUND-COLOR: #EEEEEE;">
+              <td height="30px">
+                  <a href="${type.listAction}?role=${session.admin_role}&id=${session.admin_id}">&{type.name}</a>
+              </td>
+              <td class="crudNew" >
+                  
+              </td>
+          </tr>
+          #{/if}
+	#{/if}
+
+        </tbody>
+    </table>
+
+</div>

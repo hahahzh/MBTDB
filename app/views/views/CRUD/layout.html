@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<script type="text/javascript">  
+function setLang(lang){  
+    window.location.href = "/setLang?lang=" + lang;  
+}  
+</script>
+<html lang="${lang}">
+    <head>
+            <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>&{'layoutitle'}</title>
+        <meta charset="${_response_encoding}" />
+        <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/crud.css'}" />
+        <link rel="stylesheet" type="text/css" media="screen" href="@{'/public/stylesheets/jquery-calendar.css'}" />
+         <!-- Bootstrap core CSS -->
+    	<link rel="stylesheet" media="screen" href="@{'/public/stylesheets/bootstrap.min.css'}" />
+
+	
+            #{get 'moreScripts' /}
+    #{script 'jquery-calendar.js' /}
+    #{script 'json2.js' /}
+    
+    <!-- #{script 'jquery-ui-1.8.7.custom.min.js' /} -->
+        <script type="text/javascript">
+		//<![CDATA[
+			$(document).ready(function (){ 
+				$(".crud_date input").calendar();
+			});
+		//]]>
+		</script>
+		<style>
+#wrapper{overflow:hidden;}
+#content {width:85%; float:left; }
+#sidebar {width:200px;float:right; margin-top:50px;}
+#portamento_container {float:left; position:relative;} 
+#portamento_container #sidebar.fixed {position:fixed;}
+</style>
+    </head>
+    <body role="document">
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse">
+      <div class="container">
+          <a class="navbar-brand" href="#">&{'topname'}</a>
+      </div>
+    </nav>
+<div id="wrapper">
+<div id="content">
+    <div class="container" role="main">
+		<div align="right">
+		&{'welcome'}&nbsp;&nbsp;${session.admin_name}
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		    <a href="@{Secure.logout()}">&{'logout'}</a>
+		</div>
+#{if request.actionMethod != 'index'}
+            <div id="crudBreadcrumb">
+                #{crud.navigation /}
+            </div>
+#{/if}
+
+#{if flash.success}
+            <div class="crudFlash flashSuccess">
+                ${flash.success}
+            </div>
+#{/if}
+#{if flash.error || error}
+            <div class="crudFlash flashError">
+                ${error ?: flash.error}
+            </div>
+#{/if}
+
+        <div id="crudContent">
+#{doLayout /}
+         <div class="page-header">
+      </div>
+    </div> <!-- /container -->
+    <div>
+          <p>Copyright &copy; 2015 &{'topname'}. All Rights Reserved.</p>
+      <p>&{'topname6'}</p>
+      <p>&{'topname'}</p>
+      	<p><a href="http://www.smmu.edu.cn/" target="_blank"><font color="black">&{'topname2'}</font></a></p>
+      	<p><a href="http://www.edu.cn/" target="_blank"><font color="black">&{'topname3'}</font></a></p>
+      	<p><a href="http://www.bmi.ac.cn/" target="_blank"><font color="black">&{'topname4'}</font></a></p>
+     </div>
+</div>
+
+</div>
+<div id="sidebar">
+		
+			<h4>&{'language'}</h4>
+			<ul>
+				<li><a href="javascript:setLang('zh');" title="简体中文">简体中文</a></li>
+				<li><a href="javascript:setLang('en');" title="English">English</a></li>
+			</ul>
+		<a class="back-to-top" href="#top">&{'backtotop'}</a>
+        
+	</div>
+</div>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+	<script type="text/javascript" language="javascript"  src="/public/javascripts/jquery.min.js"></script>
+	<script type="text/javascript" language="javascript"  src="/public/javascripts/bootstrap.min.js"></script>
+	<script type="text/javascript" language="javascript"  src="/public/javascripts/portamento-min.js"></script>
+	<script type="text/javascript">
+		$('#sidebar').portamento({disableWorkaround: true});
+	</script>
+  </body>
+</html>

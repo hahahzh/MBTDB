@@ -1,0 +1,60 @@
+18 八月 2016 14:05:42,410 INFO  ~ Starting E:\play-1.4.2\modules\mongo-1.3\play-mongo-test
+18 八月 2016 14:05:45,729 WARN  ~ You're running Play! in DEV mode
+18 八月 2016 14:05:46,224 INFO  ~ Listening for HTTP on port 9000 (Waiting a first request to start) ...
+18 八月 2016 14:05:46,947 ERROR ~ Cannot include routes for module crud (not found)
+18 八月 2016 14:05:48,715 ERROR ~ 
+
+@715b88lh0
+Internal Server Error (500) for request GET /admin
+
+Compilation error (In /app/controllers/Cars.java around line 14)
+The file /app/controllers/Cars.java could not be compiled. Error raised is : CRUD cannot be resolved to a type
+
+play.exceptions.CompilationException: CRUD cannot be resolved to a type
+	at play.classloading.ApplicationCompiler$2.acceptResult(ApplicationCompiler.java:264)
+	at org.eclipse.jdt.internal.compiler.Compiler.handleInternalException(Compiler.java:678)
+	at org.eclipse.jdt.internal.compiler.Compiler.compile(Compiler.java:522)
+	at play.classloading.ApplicationCompiler.compile(ApplicationCompiler.java:300)
+	at play.classloading.ApplicationClassloader.getAllClasses(ApplicationClassloader.java:430)
+	at play.Play.start(Play.java:528)
+	at play.Play.detectChanges(Play.java:648)
+	at play.Invoker$Invocation.init(Invoker.java:199)
+	at Invocation.HTTP Request(Play!)
+18 八月 2016 14:05:50,055 DEBUG ~ using collectionName "car"
+18 八月 2016 14:05:50,063 DEBUG ~ play.modules.mongo.MongoEnhancer-->enhancing MongoEntity-->models.Car-->collection-->"car"
+18 八月 2016 14:05:50,506 ERROR ~ 
+
+@715b88lh1
+Internal Server Error (500) for request GET /admin
+
+Compilation error (In /app/controllers/Cars.java around line 14)
+The file /app/controllers/Cars.java could not be compiled. Error raised is : CRUD cannot be resolved to a type
+
+play.exceptions.CompilationException: CRUD cannot be resolved to a type
+	at play.classloading.ApplicationCompiler$2.acceptResult(ApplicationCompiler.java:264)
+	at org.eclipse.jdt.internal.compiler.Compiler.handleInternalException(Compiler.java:678)
+	at org.eclipse.jdt.internal.compiler.Compiler.compile(Compiler.java:522)
+	at play.classloading.ApplicationCompiler.compile(ApplicationCompiler.java:300)
+	at play.classloading.ApplicationClassloader.getAllClasses(ApplicationClassloader.java:430)
+	at play.Play.start(Play.java:528)
+	at play.Play.detectChanges(Play.java:648)
+	at play.Invoker$Invocation.init(Invoker.java:199)
+	at Invocation.HTTP Request(Play!)
+18 八月 2016 14:05:53,716 ERROR ~ 
+
+@715b88lh2
+Internal Server Error (500) for request GET /admin
+
+Compilation error (In /app/controllers/Cars.java around line 14)
+The file /app/controllers/Cars.java could not be compiled. Error raised is : CRUD cannot be resolved to a type
+
+play.exceptions.CompilationException: CRUD cannot be resolved to a type
+	at play.classloading.ApplicationCompiler$2.acceptResult(ApplicationCompiler.java:264)
+	at org.eclipse.jdt.internal.compiler.Compiler.handleInternalException(Compiler.java:678)
+	at org.eclipse.jdt.internal.compiler.Compiler.compile(Compiler.java:522)
+	at play.classloading.ApplicationCompiler.compile(ApplicationCompiler.java:300)
+	at play.classloading.ApplicationClassloader.getAllClasses(ApplicationClassloader.java:430)
+	at play.Play.start(Play.java:528)
+	at play.Play.detectChanges(Play.java:648)
+	at play.Invoker$Invocation.init(Invoker.java:199)
+	at Invocation.HTTP Request(Play!)

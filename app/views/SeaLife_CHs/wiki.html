@@ -1,0 +1,787 @@
+#{extends 'CRUD/layout.html' /}
+#{set title:messages.get('crud.show.title', type.modelName) /}
+<div id="crudList" class="${type.name}">
+
+    <h2 id="crudListTitle">&{'crud.list.title', type.name}</h2>
+      <!-- Main jumbotron for a primary marketing message or call to action -->
+      <div class="jumbotron">
+        <h1>${object.common_name_ch}</h1>
+        <p>${object.description_ch}</p>
+        #{if img_ch == null}
+        <a href="${object.img_link_ch}" target="_blank"><img src="${object.img_link_ch}" width="300" height="200"/></a>
+        #{/if}
+        #{else}
+        <a href="@{attachment(object.id+'','img_ch')} " target="_blank"><img src="@{attachment(object.id+'','img_ch')}" /></a>
+        #{/else}
+      </div>
+
+<!-- Memu start -->
+<div class="row">
+      <div class="page-header">
+        <h1>目录</h1>
+      </div>
+          
+         <div class="col-sm-full">
+          <div class="list-group">
+          	<a href="#001" class="list-group-item">记录信息</a>
+            <a href="#002" class="list-group-item">基本信息</a>
+            <a href="#003" class="list-group-item">化学分类</a>
+            <a href="#004" class="list-group-item">物理性质</a>
+            <a href="#005" class="list-group-item">毒性</a>
+            <a href="#006" class="list-group-item">外部链接</a>
+            <a href="#007" class="list-group-item">参考文献</a>
+          </div>
+        </div><!-- /.col-sm-4 -->
+		</div>
+<!-- Memu end -->
+<!-- Record start -->
+<div class="row">		
+	 <div name="001" id="001" class="page-header">
+        <h2>记录信息</h2>
+      </div>
+
+        <div class="col-sm-full">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">创建日期</h3>
+            </div>
+            <div class="panel-body">
+              ${object.created_at_ch}
+            </div>
+          </div>
+        </div><!-- /.col-sm-4 -->
+ 
+                <div class="col-sm-full">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">更新日期</h3>
+            </div>
+            <div class="panel-body">
+             ${object.updated_at_ch}
+            </div>
+          </div>
+        </div><!-- /.col-sm-4 -->
+
+                <div class="col-sm-full">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">登记号</h3>
+            </div>
+            <div class="panel-body">
+              ${object.title_ch}
+            </div>
+          </div>
+        </div><!-- /.col-sm-4 -->
+       
+</div>
+<!-- Record end -->
+<!-- Information start -->
+<div class="row">		
+	 <div name="002" id="002" class="page-header">
+        <h2>基本信息</h2>
+      </div>
+      
+        <div class="col-sm-full">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">常用名</h3>
+            </div>
+            <div class="panel-body">
+              ${object.common_name_ch}
+            </div>
+          </div>
+        </div><!-- /.col-sm-4 -->
+    
+                <div class="col-sm-full">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">概述</h3>
+            </div>
+            <div class="panel-body">
+             ${object.description_ch}
+            </div>
+          </div>
+        </div><!-- /.col-sm-4 -->
+ 
+                <div class="col-sm-full">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">化合物类型</h3>
+            </div>
+            <div class="panel-body">
+              ${object.type_ch}
+            </div>
+          </div>
+        </div><!-- /.col-sm-4 -->
+  
+                <div class="col-sm-full">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">化学结构</h3>
+            </div>
+            <div class="panel-body">
+              #{if img_ch == null}
+        <a href="${object.img_link_ch}" target="_blank"><img src="${object.img_link_ch}"/></a>
+        #{/if}
+        #{else}
+        <a href="@{attachment(object.id+'','img_ch')} " target="_blank"><img src="@{attachment(object.id+'','img_ch')}" /></a>
+        #{/else}
+            </div>
+          </div>
+        </div><!-- /.col-sm-4 -->
+  
+                <div class="col-sm-full">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">同系物</h3>
+            </div>
+            <div class="panel-body">
+              ${object.synonyms_ch}
+            </div>
+          </div>
+        </div><!-- /.col-sm-4 -->
+
+                <div class="col-sm-full">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">化学式</h3>
+            </div>
+            <div class="panel-body">
+              ${object.chemical_formula_ch}
+            </div>
+            </div>
+        </div><!-- /.col-sm-4 -->
+
+		<div class="col-sm-full">
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<h3 class="panel-title">平均分子量</h3>
+	            </div>
+				<div class="panel-body">
+					${object.weight_ch}
+				</div>
+			</div>
+		</div><!-- /.col-sm-4 -->
+	
+                <div class="col-sm-full">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">IUPAC名称</h3>
+            </div>
+            <div class="panel-body">
+              ${object.iupac_ch}
+            </div>
+            </div>
+        </div><!-- /.col-sm-4 -->
+
+		<div class="col-sm-full">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">化学文摘号（CAS）</h3>
+            </div>
+            <div class="panel-body">
+              ${object.cas_ch}
+            </div>
+            </div>
+        </div><!-- /.col-sm-4 -->
+
+		<div class="col-sm-full">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">分子结构标识符</h3>
+            </div>
+            <div class="panel-body">
+              ${object.inchi_identifier_ch}
+            </div>
+            </div>
+        </div><!-- /.col-sm-4 -->
+
+		<div class="col-sm-full">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">分子结构重点</h3>
+            </div>
+            <div class="panel-body">
+              ${object.inchi_key_ch}
+            </div>
+            </div>
+        </div><!-- /.col-sm-4 -->
+        
+		<div class="col-sm-full">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">典范SMILES</h3>
+            </div>
+            <div class="panel-body">
+              ${object.smiles_canonical_ch}
+            </div>
+            </div>
+        </div><!-- /.col-sm-4 -->
+
+		<div class="col-sm-full">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">异构SMILES</h3>
+            </div>
+            <div class="panel-body">
+              ${object.smiles_isomeric_ch}
+            </div>
+            </div>
+        </div><!-- /.col-sm-4 -->
+       
+</div>
+<!-- Information end -->
+
+<!-- Chemical start -->
+<div class="row">
+      <div  name="003" id="003" class="page-header">
+        <h2>化学分类</h2>
+      	</div>
+		
+                <div class="col-sm-full">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">界</h3>
+            </div>
+            <div class="panel-body">
+              ${object.kingdom_ch}
+            </div>
+            </div>
+        </div><!-- /.col-sm-4 -->
+
+                <div class="col-sm-full">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">超家族</h3>
+            </div>
+            <div class="panel-body">
+              ${object.super_class_ch}
+            </div>
+            </div>
+        </div><!-- /.col-sm-4 -->
+
+                <div class="col-sm-full">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">家族</h3>
+            </div>
+            <div class="panel-body">
+              ${object.class_ch}
+            </div>
+            </div>
+        </div><!-- /.col-sm-4 -->
+
+                <div class="col-sm-full">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">亚家族</h3>
+            </div>
+            <div class="panel-body">
+              ${object.sub_class_ch}
+            </div>
+            </div>
+        </div><!-- /.col-sm-4 -->
+  
+                <div class="col-sm-full">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">Direct Parent</h3>
+            </div>
+            <div class="panel-body">
+              ${object.direct_parent_ch}
+            </div>
+            </div>
+        </div><!-- /.col-sm-4 -->
+        
+                        <div class="col-sm-full">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">Alternative Parents</h3>
+            </div>
+            <div class="panel-body">
+              ${object.alternative_parents_ch}
+            </div>
+            </div>
+        </div><!-- /.col-sm-4 -->
+        
+                              <div class="col-sm-full">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">Molecular Framework</h3>
+            </div>
+            <div class="panel-body">
+              ${object.molecular_framework_ch}
+            </div>
+            </div>
+        </div><!-- /.col-sm-4 -->
+        
+                                 <div class="col-sm-full">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">取代基</h3>
+            </div>
+            <div class="panel-body">
+              ${object.substituents_ch}
+            </div>
+            </div>
+        </div><!-- /.col-sm-4 -->
+        
+                                      <div class="col-sm-full">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">表面描述</h3>
+            </div>
+            <div class="panel-body">
+              ${object.external_descriptors_ch}
+            </div>
+            </div>
+        </div><!-- /.col-sm-4 -->
+</div>
+<!-- Chemical end -->
+      
+<!-- Physics start -->
+<div class="row">
+	<div  name="004" id="004"  class="page-header">
+		<h2>物理性质</h2>
+	</div>
+	
+	<div class="col-sm-full">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">外观</h3>
+            </div>
+			<div class="panel-body">
+				${object.appearance_ch}
+			</div>
+		</div>
+	</div><!-- /.col-sm-4 -->
+	
+	<div class="col-sm-full">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">熔点</h3>
+            </div>
+			<div class="panel-body">
+				${object.melting_point_ch}
+			</div>
+		</div>
+	</div><!-- /.col-sm-4 -->
+
+	<div class="col-sm-full">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">沸点</h3>
+            </div>
+			<div class="panel-body">
+				${object.boiling_point_ch}
+			</div>
+		</div>
+	</div><!-- /.col-sm-4 -->
+
+	<div class="col-sm-full">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">密度</h3>
+            </div>
+			<div class="panel-body">
+				${object.density_ch}
+			</div>
+		</div>
+	</div><!-- /.col-sm-4 -->
+	
+		<div class="col-sm-full">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">闪点</h3>
+            </div>
+			<div class="panel-body">
+				${object.flash_point_ch}
+			</div>
+		</div>
+	</div><!-- /.col-sm-4 -->
+
+	<div class="col-sm-full">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">溶解度</h3>
+            </div>
+			<div class="panel-body">
+				${object.solubility_ch}
+			</div>
+		</div>
+	</div><!-- /.col-sm-4 -->
+
+	<div class="col-sm-full">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">比重</h3>
+            </div>
+			<div class="panel-body">
+				${object.specific_gravity_ch}
+			</div>
+		</div>
+	</div><!-- /.col-sm-4 -->
+
+	<div class="col-sm-full">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">蒸气压</h3>
+            </div>
+			<div class="panel-body">
+				${object.vapour_pressure_ch}
+			</div>
+		</div>
+	</div><!-- /.col-sm-4 -->
+	
+		<div class="col-sm-full">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">Predicted LogP</h3>
+            </div>
+			<div class="panel-body">
+				${object.predicted_logP}
+			</div>
+		</div>
+	</div><!-- /.col-sm-4 -->
+
+</div>
+<!-- Physics end -->
+
+<!-- Toxicity start -->
+<div class="row">        
+	<div  name="005" id="005"  class="page-header">
+		<h2>毒性</h2>
+	</div>
+	
+	<div class="col-sm-full">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">暴露途径</h3>
+            </div>
+			<div class="panel-body">
+				${object.route_of_exposure_ch}
+			</div>
+		</div>
+	</div><!-- /.col-sm-4 -->
+	
+		<div class="col-sm-full">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">作用机制</h3>
+            </div>
+			<div class="panel-body">
+				${object.mechanism_of_action_ch}
+			</div>
+		</div>
+	</div><!-- /.col-sm-4 -->
+	
+		<div class="col-sm-full">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">相互作用蛋白</h3>
+            </div>
+			<div class="panel-body">
+				${object.interacting_proteins_ch}
+			</div>
+		</div>
+	</div><!-- /.col-sm-4 -->
+	
+		<div class="col-sm-full">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">代谢</h3>
+            </div>
+			<div class="panel-body">
+				${object.metabolism_ch}
+			</div>
+		</div>
+	</div><!-- /.col-sm-4 -->
+	
+	<div class="col-sm-full">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">毒性</h3>
+            </div>
+			<div class="panel-body">
+				${object.toxicity_ch}
+			</div>
+		</div>
+	</div><!-- /.col-sm-4 -->
+
+	<div class="col-sm-full">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">致死剂量</h3>
+            </div>
+			<div class="panel-body">
+				${object.lethaldose_ch}
+			</div>
+		</div>
+	</div><!-- /.col-sm-4 -->
+
+	<div class="col-sm-full">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">致癌性</h3>
+            </div>
+			<div class="panel-body">
+				${object.carcinogenicity_ch}
+			</div>
+		</div>
+	</div><!-- /.col-sm-4 -->
+
+	<div class="col-sm-full">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">用途</h3>
+            </div>
+			<div class="panel-body">
+				${object.use_source_ch}
+			</div>
+		</div>
+	</div><!-- /.col-sm-4 -->
+
+	<div class="col-sm-full">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">最小的风险水平</h3>
+            </div>
+			<div class="panel-body">
+				${object.min_risk_level_ch}
+			</div>
+		</div>
+	</div><!-- /.col-sm-4 -->
+
+	<div class="col-sm-full">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">健康影响</h3>
+            </div>
+			<div class="panel-body">
+				${object.health_effects_ch}
+			</div>
+		</div>
+	</div><!-- /.col-sm-4 -->
+
+	<div class="col-sm-full">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">症状</h3>
+            </div>
+			<div class="panel-body">
+				${object.symptoms_ch}
+			</div>
+		</div>
+	</div><!-- /.col-sm-4 -->
+
+	<div class="col-sm-full">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">治疗</h3>
+            </div>
+			<div class="panel-body">
+				${object.treatment_ch}
+			</div>
+		</div>
+	</div><!-- /.col-sm-4 -->
+
+	<div class="col-sm-full">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">靶向</h3>
+            </div>
+			<div class="panel-body">
+			#{if object.targets!=null && object.targets.size()>0}
+			  %{count = 1}%
+			#{list items:object.targets, as:'c'}
+				${count}. ${c.name_ch}<br/>&nbsp;&nbsp;&nbsp;&nbsp;UniProt ID:${c.uniprot}%{count++}%<br/>
+			#{/list}
+			#{/if}
+			#{else}
+			Not Available
+			#{/else}
+			</div>
+		</div>
+	</div><!-- /.col-sm-4 -->
+
+</div>
+<!-- Toxicity end -->
+<!-- Link start -->
+<div class="row">
+	<div  name="006" id="006"  class="page-header">
+		<h2>外部链接</h2>
+	</div>
+
+	<div class="col-sm-full">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">药物数据库(DrugBank ID)</h3>
+            </div>
+			<div class="panel-body">
+				<a href="${object.drugbank_link_ch}" target="_blank">${object.drugbank_ch}</a>
+			</div>
+		</div>
+	</div><!-- /.col-sm-4 -->
+	
+		<div class="col-sm-full">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">有机小分子生物活性数据库(PubChem Compound ID)</h3>
+            </div>
+			<div class="panel-body">
+				<a href="${object.pubchem_link_ch}" target="_blank">${object.pubchem_ch}</a>
+			</div>
+		</div>
+	</div><!-- /.col-sm-4 -->
+	
+		<div class="col-sm-full">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">京都基因与基因组百科全书生化复合物及反应(KEGG ID)</h3>
+            </div>
+			<div class="panel-body">
+				<a href="${object.kegg_compound_link_ch}" target="_blank">${object.kegg_compound_ch}</a>
+			</div>
+		</div>
+	</div><!-- /.col-sm-4 -->
+	
+	<div class="col-sm-full">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">用蛋白质资源(UniProt ID)</h3>
+            </div>
+			<div class="panel-body">
+				<a href="${object.uniprot_link_ch}" target="_blank">${object.uniprot_ch}</a>
+			</div>
+		</div>
+	</div><!-- /.col-sm-4 -->
+	
+		<div class="col-sm-full">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">在线《人类孟德尔遗传》(OMIM ID)</h3>
+            </div>
+			<div class="panel-body">
+				<a href="${object.omim_link_ch}" target="_blank">${object.omim_ch}</a>
+			</div>
+		</div>
+	</div><!-- /.col-sm-4 -->
+	
+		<div class="col-sm-full">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">生物相关化学实体(ChEBI ID)</h3>
+            </div>
+			<div class="panel-body">
+				<a href="${object.chebi_link_ch}" target="_blank">${object.chebi_ch}</a>
+			</div>
+		</div>
+	</div><!-- /.col-sm-4 -->
+
+	<div class="col-sm-full">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">生物百科全书数据库(BioCyc ID)</h3>
+            </div>
+			<div class="panel-body">
+				<a href="${object.biocyc_link_ch}" target="_blank">${object.biocyc_ch}</a>
+			</div>
+		</div>
+	</div><!-- /.col-sm-4 -->
+
+<div class="col-sm-full">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">比较毒理基因组学数据库(CTD ID)</h3>
+            </div>
+			<div class="panel-body">
+				<a href="${object.ctd_link_ch}" target="_blank">${object.ctd_ch}</a>
+			</div>
+		</div>
+	</div><!-- /.col-sm-4 -->
+	
+		<div class="col-sm-full">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">蛋白质化合物作用网数据库(Stitch ID)</h3>
+            </div>
+			<div class="panel-body">
+				<a href="${object.stitch_link_ch}" target="_blank">${object.stitch_ch}</a>
+			</div>
+		</div>
+	</div><!-- /.col-sm-4 -->
+	
+		<div class="col-sm-full">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">蛋白质数据库(PDB ID)</h3>
+            </div>
+			<div class="panel-body">
+				<a href="${object.pdb_ch}" target="_blank">${object.pdb_ch}</a>
+			</div>
+		</div>
+	</div><!-- /.col-sm-4 -->
+	
+		<div class="col-sm-full">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">汇总计算毒理学资源(ACToR ID)</h3>
+            </div>
+			<div class="panel-body">
+				<a href="${object.actor_link_ch}" target="_blank">${object.actor_ch}</a>
+			</div>
+		</div>
+	</div><!-- /.col-sm-4 -->
+	
+	<div class="col-sm-full">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">维基百科</h3>
+            </div>
+			<div class="panel-body">
+				<a href="${object.wikipedia_ch}" target="_blank">${object.wikipedia_ch}</a>
+			</div>
+		</div>
+	</div><!-- /.col-sm-4 -->
+	
+	<div class="col-sm-full">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">剧毒化合物数据库</h3>
+            </div>
+			<div class="panel-body">
+				${object.supertoxic_ch}
+			</div>
+		</div>
+	</div><!-- /.col-sm-4 -->
+	
+</div>
+<!-- Link end -->
+<!-- Literature start -->
+<div class="row">
+        <div  name="007" id="007"  class="page-header">
+        <h2>参考文献</h2>
+      </div>
+  
+        <div class="well">
+        <p>
+        %{String[] arr;count2 = 1;
+           if (object.reference_ch != null && object.reference_ch != ''){
+        	arr = object.reference_ch.split("&br");
+        	}
+        	
+        	for(String s:arr){
+        	}%
+        	${count2}. ${s}<br/>
+        %{	
+        	count2++;}
+         }%
+        
+        	
+        
+        </p>
+      </div>
+ 
+</div>
+<!-- Literature end -->
+</div>

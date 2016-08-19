@@ -1,0 +1,787 @@
+#{extends 'CRUD/layout.html' /}
+#{set title:messages.get('crud.show.title', type.modelName) /}
+<div id="crudList" class="${type.name}">
+
+    <h2 id="crudListTitle">&{'crud.list.title', type.name}</h2>
+      <!-- Main jumbotron for a primary marketing message or call to action -->
+      <div class="jumbotron">
+        <h1>${object.common_name_en}</h1>
+        <p>${object.description_en}</p>
+        #{if img_en == null}
+        <a href="${object.img_link_en}" target="_blank"><img src="${object.img_link_en}" width="300" height="200"/></a>
+        #{/if}
+        #{else}
+        <a href="@{attachment(object.id+'','img_en')} " target="_blank"><img src="@{attachment(object.id+'','img_en')}" /></a>
+        #{/else}
+      </div>
+
+<!-- Memu start -->
+<div class="row">
+      <div class="page-header">
+        <h1>Menu</h1>
+      </div>
+          
+         <div class="col-sm-full">
+          <div class="list-group">
+          	<a href="#001" class="list-group-item">Record Information</a>
+            <a href="#002" class="list-group-item">Identification</a>
+            <a href="#003" class="list-group-item">Chemical Taxonomy</a>
+            <a href="#004" class="list-group-item">Physical Properties</a>
+            <a href="#005" class="list-group-item">Toxicity Profile</a>
+            <a href="#006" class="list-group-item">External Links</a>
+            <a href="#007" class="list-group-item">References</a>
+          </div>
+        </div><!-- /.col-sm-4 -->
+		</div>
+<!-- Memu end -->
+<!-- Record start -->
+<div class="row">		
+	 <div name="001" id="001" class="page-header">
+        <h2>Record Information</h2>
+      </div>
+
+        <div class="col-sm-full">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">Creation Date</h3>
+            </div>
+            <div class="panel-body">
+              ${object.created_at_en}
+            </div>
+          </div>
+        </div><!-- /.col-sm-4 -->
+ 
+                <div class="col-sm-full">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">Update Date</h3>
+            </div>
+            <div class="panel-body">
+             ${object.updated_at_en}
+            </div>
+          </div>
+        </div><!-- /.col-sm-4 -->
+
+                <div class="col-sm-full">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">Accession Number</h3>
+            </div>
+            <div class="panel-body">
+              ${object.title_en}
+            </div>
+          </div>
+        </div><!-- /.col-sm-4 -->
+       
+</div>
+<!-- Record end -->
+<!-- Information start -->
+<div class="row">		
+	 <div name="002" id="002" class="page-header">
+        <h2>Identification</h2>
+      </div>
+      
+        <div class="col-sm-full">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">Common Name</h3>
+            </div>
+            <div class="panel-body">
+              ${object.common_name_en}
+            </div>
+          </div>
+        </div><!-- /.col-sm-4 -->
+    
+                <div class="col-sm-full">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">Description</h3>
+            </div>
+            <div class="panel-body">
+             ${object.description_en}
+            </div>
+          </div>
+        </div><!-- /.col-sm-4 -->
+ 
+                <div class="col-sm-full">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">Compound Type</h3>
+            </div>
+            <div class="panel-body">
+              ${object.type_en}
+            </div>
+          </div>
+        </div><!-- /.col-sm-4 -->
+  
+                <div class="col-sm-full">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">Chemical Structure</h3>
+            </div>
+            <div class="panel-body">
+              #{if img_en == null}
+        <a href="${object.img_link_en}" target="_blank"><img src="${object.img_link_en}"/></a>
+        #{/if}
+        #{else}
+        <a href="@{attachment(object.id+'','img_en')} " target="_blank"><img src="@{attachment(object.id+'','img_en')}" /></a>
+        #{/else}
+            </div>
+          </div>
+        </div><!-- /.col-sm-4 -->
+  
+                <div class="col-sm-full">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">Synonyms</h3>
+            </div>
+            <div class="panel-body">
+              ${object.synonyms_en}
+            </div>
+          </div>
+        </div><!-- /.col-sm-4 -->
+
+                <div class="col-sm-full">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">Chemical Formula</h3>
+            </div>
+            <div class="panel-body">
+              ${object.chemical_formula_en}
+            </div>
+            </div>
+        </div><!-- /.col-sm-4 -->
+
+		<div class="col-sm-full">
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<h3 class="panel-title">Average Molecular Weight</h3>
+	            </div>
+				<div class="panel-body">
+					${object.weight_en}
+				</div>
+			</div>
+		</div><!-- /.col-sm-4 -->
+	
+                <div class="col-sm-full">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">Chemical IUPAC Name</h3>
+            </div>
+            <div class="panel-body">
+              ${object.iupac_en}
+            </div>
+            </div>
+        </div><!-- /.col-sm-4 -->
+
+		<div class="col-sm-full">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">CAS Registry Number</h3>
+            </div>
+            <div class="panel-body">
+              ${object.cas_en}
+            </div>
+            </div>
+        </div><!-- /.col-sm-4 -->
+
+		<div class="col-sm-full">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">InChI Identifier</h3>
+            </div>
+            <div class="panel-body">
+              ${object.inchi_identifier_en}
+            </div>
+            </div>
+        </div><!-- /.col-sm-4 -->
+
+		<div class="col-sm-full">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">InChI Key</h3>
+            </div>
+            <div class="panel-body">
+              ${object.inchi_key_en}
+            </div>
+            </div>
+        </div><!-- /.col-sm-4 -->
+        
+		<div class="col-sm-full">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">Smiles Canonical</h3>
+            </div>
+            <div class="panel-body">
+              ${object.smiles_canonical_en}
+            </div>
+            </div>
+        </div><!-- /.col-sm-4 -->
+
+		<div class="col-sm-full">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">Smiles Isomeric</h3>
+            </div>
+            <div class="panel-body">
+              ${object.smiles_isomeric_en}
+            </div>
+            </div>
+        </div><!-- /.col-sm-4 -->
+       
+</div>
+<!-- Information end -->
+
+<!-- Chemical start -->
+<div class="row">
+      <div  name="003" id="003" class="page-header">
+        <h2>Chemical Taxonomy</h2>
+      	</div>
+		
+                <div class="col-sm-full">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">Kingdom</h3>
+            </div>
+            <div class="panel-body">
+              ${object.kingdom_en}
+            </div>
+            </div>
+        </div><!-- /.col-sm-4 -->
+
+                <div class="col-sm-full">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">Super Class</h3>
+            </div>
+            <div class="panel-body">
+              ${object.super_class_en}
+            </div>
+            </div>
+        </div><!-- /.col-sm-4 -->
+
+                <div class="col-sm-full">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">Class</h3>
+            </div>
+            <div class="panel-body">
+              ${object.class_en}
+            </div>
+            </div>
+        </div><!-- /.col-sm-4 -->
+
+                <div class="col-sm-full">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">Sub Class</h3>
+            </div>
+            <div class="panel-body">
+              ${object.sub_class_en}
+            </div>
+            </div>
+        </div><!-- /.col-sm-4 -->
+  
+                <div class="col-sm-full">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">	 Parent</h3>
+            </div>
+            <div class="panel-body">
+              ${object.direct_parent_en}
+            </div>
+            </div>
+        </div><!-- /.col-sm-4 -->
+        
+                        <div class="col-sm-full">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">Alternative Parents</h3>
+            </div>
+            <div class="panel-body">
+              ${object.alternative_parents_en}
+            </div>
+            </div>
+        </div><!-- /.col-sm-4 -->
+        
+                              <div class="col-sm-full">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">Molecular Framework</h3>
+            </div>
+            <div class="panel-body">
+              ${object.molecular_framework_en}
+            </div>
+            </div>
+        </div><!-- /.col-sm-4 -->
+        
+                                 <div class="col-sm-full">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">Substituents</h3>
+            </div>
+            <div class="panel-body">
+              ${object.substituents_en}
+            </div>
+            </div>
+        </div><!-- /.col-sm-4 -->
+        
+                                      <div class="col-sm-full">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">External Descriptors</h3>
+            </div>
+            <div class="panel-body">
+              ${object.external_descriptors_en}
+            </div>
+            </div>
+        </div><!-- /.col-sm-4 -->
+</div>
+<!-- Chemical end -->
+      
+<!-- Physics start -->
+<div class="row">
+	<div  name="004" id="004"  class="page-header">
+		<h2>Physical Properties</h2>
+	</div>
+	
+	<div class="col-sm-full">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">Appearance</h3>
+            </div>
+			<div class="panel-body">
+				${object.appearance_en}
+			</div>
+		</div>
+	</div><!-- /.col-sm-4 -->
+	
+	<div class="col-sm-full">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">Melting Point</h3>
+            </div>
+			<div class="panel-body">
+				${object.melting_point_en}
+			</div>
+		</div>
+	</div><!-- /.col-sm-4 -->
+
+	<div class="col-sm-full">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">Boiling Point</h3>
+            </div>
+			<div class="panel-body">
+				${object.boiling_point_en}
+			</div>
+		</div>
+	</div><!-- /.col-sm-4 -->
+
+	<div class="col-sm-full">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">Density</h3>
+            </div>
+			<div class="panel-body">
+				${object.density_en}
+			</div>
+		</div>
+	</div><!-- /.col-sm-4 -->
+	
+		<div class="col-sm-full">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">Flash Point</h3>
+            </div>
+			<div class="panel-body">
+				${object.flash_point_en}
+			</div>
+		</div>
+	</div><!-- /.col-sm-4 -->
+
+	<div class="col-sm-full">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">Solubility</h3>
+            </div>
+			<div class="panel-body">
+				${object.solubility_en}
+			</div>
+		</div>
+	</div><!-- /.col-sm-4 -->
+
+	<div class="col-sm-full">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">Specific Gravity</h3>
+            </div>
+			<div class="panel-body">
+				${object.specific_gravity_en}
+			</div>
+		</div>
+	</div><!-- /.col-sm-4 -->
+
+	<div class="col-sm-full">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">Vapour Pressure</h3>
+            </div>
+			<div class="panel-body">
+				${object.vapour_pressure_en}
+			</div>
+		</div>
+	</div><!-- /.col-sm-4 -->
+	
+		<div class="col-sm-full">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">Predicted LogP</h3>
+            </div>
+			<div class="panel-body">
+				${object.predicted_logP}
+			</div>
+		</div>
+	</div><!-- /.col-sm-4 -->
+
+</div>
+<!-- Physics end -->
+
+<!-- Toxicity start -->
+<div class="row">        
+	<div  name="005" id="005"  class="page-header">
+		<h2>Toxicity Profile</h2>
+	</div>
+	
+	<div class="col-sm-full">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">Route of Exposure</h3>
+            </div>
+			<div class="panel-body">
+				${object.route_of_exposure_en}
+			</div>
+		</div>
+	</div><!-- /.col-sm-4 -->
+	
+		<div class="col-sm-full">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">Mechanism of Action</h3>
+            </div>
+			<div class="panel-body">
+				${object.mechanism_of_action_en}
+			</div>
+		</div>
+	</div><!-- /.col-sm-4 -->
+	
+		<div class="col-sm-full">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">Interacting Proteins</h3>
+            </div>
+			<div class="panel-body">
+				${object.interacting_proteins_en}
+			</div>
+		</div>
+	</div><!-- /.col-sm-4 -->
+	
+		<div class="col-sm-full">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">Metabolism</h3>
+            </div>
+			<div class="panel-body">
+				${object.metabolism_en}
+			</div>
+		</div>
+	</div><!-- /.col-sm-4 -->
+	
+	<div class="col-sm-full">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">Toxicity Values</h3>
+            </div>
+			<div class="panel-body">
+				${object.toxicity_en}
+			</div>
+		</div>
+	</div><!-- /.col-sm-4 -->
+
+	<div class="col-sm-full">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">Lethal Dose</h3>
+            </div>
+			<div class="panel-body">
+				${object.lethaldose_en}
+			</div>
+		</div>
+	</div><!-- /.col-sm-4 -->
+
+	<div class="col-sm-full">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">Carcinogenicity</h3>
+            </div>
+			<div class="panel-body">
+				${object.carcinogenicity_en}
+			</div>
+		</div>
+	</div><!-- /.col-sm-4 -->
+
+	<div class="col-sm-full">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">Uses/Sources</h3>
+            </div>
+			<div class="panel-body">
+				${object.use_source_en}
+			</div>
+		</div>
+	</div><!-- /.col-sm-4 -->
+
+	<div class="col-sm-full">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">Minimum Risk Level</h3>
+            </div>
+			<div class="panel-body">
+				${object.min_risk_level_en}
+			</div>
+		</div>
+	</div><!-- /.col-sm-4 -->
+
+	<div class="col-sm-full">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">Health Effects</h3>
+            </div>
+			<div class="panel-body">
+				${object.health_effects_en}
+			</div>
+		</div>
+	</div><!-- /.col-sm-4 -->
+
+	<div class="col-sm-full">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">Symptoms</h3>
+            </div>
+			<div class="panel-body">
+				${object.symptoms_en}
+			</div>
+		</div>
+	</div><!-- /.col-sm-4 -->
+
+	<div class="col-sm-full">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">Treatment</h3>
+            </div>
+			<div class="panel-body">
+				${object.treatment_en}
+			</div>
+		</div>
+	</div><!-- /.col-sm-4 -->
+
+	<div class="col-sm-full">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">Targets</h3>
+            </div>
+			<div class="panel-body">
+			#{if object.targets!=null && object.targets.size()>0}
+			  %{count = 1}%
+			#{list items:object.targets, as:'c'}
+				${count}. ${c.name_en}<br/>&nbsp;&nbsp;&nbsp;&nbsp;UniProt ID:${c.uniprot}%{count++}%<br/>
+			#{/list}
+			#{/if}
+			#{else}
+			Not Available
+			#{/else}
+			</div>
+		</div>
+	</div><!-- /.col-sm-4 -->
+
+</div>
+<!-- Toxicity end -->
+<!-- Link start -->
+<div class="row">
+	<div  name="006" id="006"  class="page-header">
+		<h2>External Links</h2>
+	</div>
+
+	<div class="col-sm-full">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">DrugBank ID</h3>
+            </div>
+			<div class="panel-body">
+				<a href="${object.drugbank_link_en}" target="_blank">${object.drugbank_en}</a>
+			</div>
+		</div>
+	</div><!-- /.col-sm-4 -->
+	
+		<div class="col-sm-full">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">PubChem Compound ID</h3>
+            </div>
+			<div class="panel-body">
+				<a href="${object.pubchem_link_en}" target="_blank">${object.pubchem_en}</a>
+			</div>
+		</div>
+	</div><!-- /.col-sm-4 -->
+	
+		<div class="col-sm-full">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">KEGG ID</h3>
+            </div>
+			<div class="panel-body">
+				<a href="${object.kegg_compound_link_en}" target="_blank">${object.kegg_compound_en}</a>
+			</div>
+		</div>
+	</div><!-- /.col-sm-4 -->
+	
+	<div class="col-sm-full">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">UniProt ID</h3>
+            </div>
+			<div class="panel-body">
+				<a href="${object.uniprot_link_en}" target="_blank">${object.uniprot_en}</a>
+			</div>
+		</div>
+	</div><!-- /.col-sm-4 -->
+	
+		<div class="col-sm-full">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">OMIM ID</h3>
+            </div>
+			<div class="panel-body">
+				<a href="${object.omim_link_en}" target="_blank">${object.omim_en}</a>
+			</div>
+		</div>
+	</div><!-- /.col-sm-4 -->
+	
+		<div class="col-sm-full">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">ChEBI ID</h3>
+            </div>
+			<div class="panel-body">
+				<a href="${object.chebi_link_en}" target="_blank">${object.chebi_en}</a>
+			</div>
+		</div>
+	</div><!-- /.col-sm-4 -->
+
+	<div class="col-sm-full">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">BioCyc ID</h3>
+            </div>
+			<div class="panel-body">
+				<a href="${object.biocyc_link_en}" target="_blank">${object.biocyc_en}</a>
+			</div>
+		</div>
+	</div><!-- /.col-sm-4 -->
+
+<div class="col-sm-full">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">CTD ID</h3>
+            </div>
+			<div class="panel-body">
+				<a href="${object.ctd_link_en}" target="_blank">${object.ctd_en}</a>
+			</div>
+		</div>
+	</div><!-- /.col-sm-4 -->
+	
+		<div class="col-sm-full">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">Stitch ID</h3>
+            </div>
+			<div class="panel-body">
+				<a href="${object.stitch_link_en}" target="_blank">${object.stitch_en}</a>
+			</div>
+		</div>
+	</div><!-- /.col-sm-4 -->
+	
+		<div class="col-sm-full">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">PDB ID</h3>
+            </div>
+			<div class="panel-body">
+				<a href="${object.pdb_en}" target="_blank">${object.pdb_en}</a>
+			</div>
+		</div>
+	</div><!-- /.col-sm-4 -->
+	
+		<div class="col-sm-full">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">ACToR ID</h3>
+            </div>
+			<div class="panel-body">
+				<a href="${object.actor_link_en}" target="_blank">${object.actor_en}</a>
+			</div>
+		</div>
+	</div><!-- /.col-sm-4 -->
+	
+	<div class="col-sm-full">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">Wikipedia Link</h3>
+            </div>
+			<div class="panel-body">
+				<a href="${object.wikipedia_en}" target="_blank">${object.wikipedia_en}</a>
+			</div>
+		</div>
+	</div><!-- /.col-sm-4 -->
+	
+	<div class="col-sm-full">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">Supertoxic</h3>
+            </div>
+			<div class="panel-body">
+				${object.supertoxic_en}
+			</div>
+		</div>
+	</div><!-- /.col-sm-4 -->
+	
+</div>
+<!-- Link end -->
+<!-- Literature start -->
+<div class="row">
+        <div  name="007" id="007"  class="page-header">
+        <h2>References</h2>
+      </div>
+  
+        <div class="well">
+        <p>
+        %{String[] arr;count2 = 1;
+           if (object.reference_en != null && object.reference_en != ''){
+        	arr = object.reference_en.split("&br");
+        	}
+        	
+        	for(String s:arr){
+        	}%
+        	${count2}. ${s}<br/>
+        %{	
+        	count2++;}
+         }%
+        
+        	
+        
+        </p>
+      </div>
+ 
+</div>
+<!-- Literature end -->
+</div>
