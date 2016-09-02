@@ -1,16 +1,14 @@
 package models;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import com.google.code.morphia.annotations.Entity;
 
 import play.data.validation.MaxSize;
 import play.data.validation.MinSize;
 import play.data.validation.Required;
-import play.modules.mongo.MongoEntity;
-import play.modules.mongo.MongoModel;
+import play.modules.morphia.Model;
 
-@MongoEntity(value = "roles")
-public class Role extends MongoModel {
+@Entity(value = "roles")
+public class Role extends Model {
 
 	@Required
 	@MaxSize(10)

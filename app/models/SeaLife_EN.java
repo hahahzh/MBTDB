@@ -3,147 +3,298 @@ package models;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+import com.google.code.morphia.annotations.Entity;
+import com.google.code.morphia.annotations.Reference;
 
-import play.data.validation.MaxSize;
 import play.data.validation.Required;
 import play.db.jpa.Blob;
-import play.modules.mongo.MongoEntity;
-import play.modules.mongo.MongoModel;
+import play.modules.morphia.Model;
 
-@MongoEntity(value = "sea_life_en")
-public class SeaLife_EN extends MongoModel {
 
+@Entity(value = "sea_life_en")
+public class SeaLife_EN extends Model {
+
+	public Date created_at;
 	
-	public Date created_at_en;
+	public Date updated_at;
 	
-	public Date updated_at_en;
 	@Required
-	@MaxSize(50)
-	public String title_en;
-	@MaxSize(300)
-	public String common_name_en; // 常用名
-	@MaxSize(1000)
-	public String description_en; // 概述
-	public String type_en; // 化学类别
-	public Blob img_en;
-	@MaxSize(300)
-	public String img_link_en;
-	@MaxSize(1000)
-	public String synonyms_en; // 同系物
-	@MaxSize(200)
-	public String chemical_formula_en;
-	public String weight_en;
-	@MaxSize(500)
-	public String iupac_en;
-	@MaxSize(100)
-	public String cas_en;
-	@MaxSize(500)
-	public String inchi_identifier_en;
-	public String inchi_key_en;
-	public String smiles_isomeric_en;
-	public String smiles_canonical_en;
-	@MaxSize(100)
-	public String mol_en;
-	@MaxSize(100)
-	public String organism_en; // 组织器官
-	public String kingdom_en;
-	public String super_class_en;
-	public String class_en;
-	public String sub_class_en;
-	public String direct_parent_en;
-	public String alternative_parents_en;
-	public String molecular_framework_en;
-	public String substituents_en;
-	public String external_descriptors_en;
-	@MaxSize(50)
-	public String appearance_en; // 外观（appearance）
-	@MaxSize(50)
-	public String melting_point_en;
-	@MaxSize(50)
-	public String boiling_point_en;
-	@MaxSize(50)
-	public String density_en;
-	@MaxSize(50)
-	public String flash_point_en;
-	@MaxSize(50)
-	public String solubility_en;
-	@MaxSize(50)
-	public String specific_gravity_en;
-	@MaxSize(50)
-	public String vapour_pressure_en;
+	public String title;
+	
+	public String common_name; // 常用名
+	
+	public String description; // 概述
+	public String type; // 化学类别
+	public Blob img;
+
+	public String img_link;
+	
+	public String synonyms; // 同系物
+	
+	public String chemical_formula;
+	public String weight;
+	
+	public String iupac;
+	
+	public String cas;
+	
+	public String inchi_identifier;
+	public String inchi_key;
+	public String smiles_isomeric;
+	public String smiles_canonical;
+	
+	public String mol;
+	
+	public String organism; // 组织器官
+	public String kingdom;
+	public String super_class;
+	public String class_;
+	public String sub_class;
+	public String direct_parent;
+	public String alternative_parents;
+	public String molecular_framework;
+	public String substituents;
+	public String external_descriptors;
+	
+	public String appearance; // 外观（appearance）
+	
+	public String melting_point;
+	
+	public String boiling_point;
+	
+	public String density;
+	
+	public String flash_point;
+	
+	public String solubility;
+	
+	public String specific_gravity;
+	
+	public String vapour_pressure;
 	public String predicted_logP;
-	@MaxSize(100)
-	public String route_of_exposure_en; // 暴露途径（route_of_exposure）
-	@MaxSize(1000)
-	public String mechanism_of_action_en; // 作用机制（mechanism_of_action）
-	public String interacting_proteins_en; // 相互作用蛋白（interacting_proteins）
-	@MaxSize(1000)
-	public String metabolism_en; // 代谢（metabolism）
-	@MaxSize(50)
-	public String toxicity_en; // 毒性（toxicity）
-	@MaxSize(100)
-	public String lethaldose_en; // 致死剂量（lethal dose）
-	public String carcinogenicity_en; // 致癌性（carcinogenicity）
-	public String use_source_en; // 用途（use_source）
-	@MaxSize(50)
-	public String min_risk_level_en; // 最小的风险水平（min_risk_level）
-	@MaxSize(1000)
-	public String health_effects_en; // （健康的影响（health_effects）
-	@MaxSize(1000)
-	public String symptoms_en; // 症状（symptoms）
-	@MaxSize(1000)
-	public String treatment_en; // 治疗（treatment）
-	@ManyToMany(cascade={CascadeType.REMOVE})
-    public List<Target_CH> targets; // 靶点（targets）
-	@MaxSize(20)
-	public String drugbank_en;
-	public String drugbank_link_en;
-	@MaxSize(20)
-	public String pubchem_en;
-	public String pubchem_link_en;
-	@MaxSize(20)
-	public String kegg_compound_en;
-	public String kegg_compound_link_en;
-	@MaxSize(20)
-	public String uniprot_en;
-	public String uniprot_link_en;
-	@MaxSize(20)
-	public String omim_en;
-	public String omim_link_en;
-	@MaxSize(20)
-	public String chebi_en;
-	public String chebi_link_en;
-	@MaxSize(20)
-	public String biocyc_en;
-	public String biocyc_link_en;
-	@MaxSize(20)
-	public String ctd_en;
-	public String ctd_link_en;
-	@MaxSize(20)
-	public String stitch_en;
-	public String stitch_link_en;
-	@MaxSize(20)
-	public String pdb_en;
-	public String pdb_link_en;
-	@MaxSize(20)
-	public String actor_en;
-	public String actor_link_en;
-	@MaxSize(100)
-	public String wikipedia_en;
-	@MaxSize(50)
-	public String supertoxic_en;
-	@MaxSize(1000)
-	public String reference_en;
-	public Boolean isShow_en;
+	
+	public String route_of_exposure; // 暴露途径（route_of_exposure）
+	
+	public String mechanism_of_action; // 作用机制（mechanism_of_action）
+	public String interacting_proteins; // 相互作用蛋白（interacting_proteins）
+	
+	public String metabolism; // 代谢（metabolism）
+	
+	public String toxicity; // 毒性（toxicity）
+	
+	public String lethaldose; // 致死剂量（lethal dose）
+	public String carcinogenicity; // 致癌性（carcinogenicity）
+	public String use_source; // 用途（use_source）
+	
+	public String min_risk_level; // 最小的风险水平（min_risk_level）
+	
+	public String health_effects; // （健康的影响（health_effects）
+	
+	public String symptoms; // 症状（symptoms）
+	
+	public String treatment; // 治疗（treatment）
+	@Reference
+    public List<Target_EN> targets; // 靶点（targets）
+	
+	public String drugbank;
+	public String drugbank_link;
+	
+	public String pubchem;
+	public String pubchem_link;
+	
+	public String kegg_compound;
+	public String kegg_compound_link;
+	
+	public String uniprot;
+	public String uniprot_link;
+	
+	public String omim;
+	public String omim_link;
+	
+	public String chebi;
+	public String chebi_link;
+	
+	public String biocyc;
+	public String biocyc_link;
+	
+	public String ctd;
+	public String ctd_link;
+	
+	public String stitch;
+	public String stitch_link;
+	
+	public String pdb;
+	public String pdb_link;
+	
+	public String actor;
+	public String actor_link;
+	
+	public String wikipedia;
+	
+	public String supertoxic;
+	
+	public String reference;
+	public Boolean isShow;
 	@Required
-	public String auth_en;
-
+	public String auth;
+	
+	 public SeaLife_EN(Date created_at,
+			 Date updated_at,
+			 String title,
+			 String common_name,
+			 String description,
+			 String type,
+			 Blob img,
+			 String img_link,
+			 String synonyms,
+			 String chemical_formula,
+			 String weight,
+			 String iupac,
+			 String cas,
+			 String inchi_identifier,
+			 String inchi_key,
+			 String smiles_isomeric,
+			 String smiles_canonical,
+			 String mol,
+			 String organism,
+			 String kingdom,
+			 String super_class,
+			 String class_,
+			 String sub_class,
+			 String direct_parent,
+			 String alternative_parents,
+			 String molecular_framework,
+			 String substituents,
+			 String external_descriptors,
+			 String appearance,
+			 String melting_point,
+			 String boiling_point,
+			 String density,
+			 String flash_point,
+			 String solubility,
+			 String specific_gravity,
+			 String vapour_pressure,
+			 String predicted_logP,
+			 String route_of_exposure,
+			 String mechanism_of_action,
+			 String interacting_proteins,
+			 String metabolism,
+			 String toxicity,
+			 String lethaldose,
+			 String carcinogenicity,
+			 String use_source,
+			 String min_risk_level,
+			 String health_effects,
+			 String symptoms,
+			 String treatment,
+			 String drugbank,
+			 String drugbank_link,
+			 String pubchem,
+			 String pubchem_link,
+			 String kegg_compound,
+			 String kegg_compound_link,
+			 String uniprot,
+			 String uniprot_link,
+			 String omim,
+			 String omim_link,
+			 String chebi,
+			 String chebi_link,
+			 String biocyc,
+			 String biocyc_link,
+			 String ctd,
+			 String ctd_link,
+			 String stitch,
+			 String stitch_link,
+			 String pdb,
+			 String pdb_link,
+			 String actor,
+			 String actor_link,
+			 String wikipedia,
+			 String supertoxic,
+			 String reference,
+			 Boolean isShow,
+			 String auth) {
+		 this.created_at = created_at;
+		 this.updated_at = updated_at;
+		 this.title = title;
+		 this.common_name = common_name;
+		 this.description = description;
+		 this.type = type;
+		 this.img = img;
+		 this.img_link = img_link;
+		 this.synonyms = synonyms;
+		 this.chemical_formula = chemical_formula;
+		 this.weight = weight;
+		 this.iupac = iupac;
+		 this.cas = cas;
+		 this.inchi_identifier = inchi_identifier;
+		 this.inchi_key = inchi_key;
+		 this.smiles_isomeric = smiles_isomeric;
+		 this.smiles_canonical = smiles_canonical;
+		 this.mol = mol;
+		 this.organism = organism;
+		 this.kingdom = kingdom;
+		 this.super_class = super_class;
+		 this.class_ = class_;
+		 this.sub_class = sub_class;
+		 this.direct_parent = direct_parent;
+		 this.alternative_parents = alternative_parents;
+		 this.molecular_framework = molecular_framework;
+		 this.substituents = substituents;
+		 this.external_descriptors = external_descriptors;
+		 this.appearance = appearance;
+		 this.melting_point = melting_point;
+		 this.boiling_point = boiling_point;
+		 this.density = density;
+		 this.flash_point = flash_point;
+		 this.solubility = solubility;
+		 this.specific_gravity = specific_gravity;
+		 this.vapour_pressure = vapour_pressure;
+		 this.predicted_logP = predicted_logP;
+		 this.route_of_exposure = route_of_exposure;
+		 this.mechanism_of_action = mechanism_of_action;
+		 this.interacting_proteins = interacting_proteins;
+		 this.metabolism = metabolism;
+		 this.toxicity = toxicity;
+		 this.lethaldose = lethaldose;
+		 this.carcinogenicity = carcinogenicity;
+		 this.use_source = use_source;
+		 this.min_risk_level = min_risk_level;
+		 this.health_effects = health_effects;
+		 this.symptoms = symptoms;
+		 this.treatment = treatment;
+		 this.drugbank = drugbank;
+		 this.drugbank_link = drugbank_link;
+		 this.pubchem = pubchem;
+		 this.pubchem_link = pubchem_link;
+		 this.kegg_compound = kegg_compound;
+		 this.kegg_compound_link = kegg_compound_link;
+		 this.uniprot = uniprot;
+		 this.uniprot_link = uniprot_link;
+		 this.omim = omim;
+		 this.omim_link = omim_link;
+		 this.chebi = chebi;
+		 this.chebi_link = chebi_link;
+		 this.biocyc = biocyc;
+		 this.biocyc_link = biocyc_link;
+		 this.ctd = ctd;
+		 this.ctd_link = ctd_link;
+		 this.stitch = stitch;
+		 this.stitch_link = stitch_link;
+		 this.pdb = pdb;
+		 this.pdb_link = pdb_link;
+		 this.actor = actor;
+		 this.actor_link = actor_link;
+		 this.wikipedia = wikipedia;
+		 this.supertoxic = supertoxic;
+		 this.reference = reference;
+		 this.isShow = isShow;
+		 this.auth = auth;
+	    }
+	
 	public String toString() {
-		return title_en;
+		return title;
 	}
+
 
 }

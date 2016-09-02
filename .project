@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>MBTDB</name>
+	<name>MBT</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -17,29 +17,34 @@
 	</natures>
 	<linkedResources>
 		<link>
-			<name>docviewer</name>
+			<name>crud</name>
 			<type>2</type>
-			<location>E:/play-1.4.2/modules/docviewer/app</location>
+			<location>E:/play-1.2.7.2/modules/crud/app</location>
 		</link>
 		<link>
-			<name>mongo</name>
+			<name>morphia-1.2.12</name>
 			<type>2</type>
-			<location>E:/play-1.4.2/modules/mongo</location>
+			<location>E:/play-1.2.7.2/modules/morphia-1.2.12/app</location>
 		</link>
 		<link>
 			<name>secure</name>
 			<type>2</type>
-			<location>E:/play-1.4.2/modules/secure/app</location>
+			<location>E:/play-1.2.7.2/modules/secure/app</location>
+		</link>
+		<link>
+			<name>conf/crud</name>
+			<type>2</type>
+			<location>E:/play-1.2.7.2/modules/crud/conf</location>
+		</link>
+		<link>
+			<name>conf/morphia-1.2.12</name>
+			<type>2</type>
+			<location>E:/play-1.2.7.2/modules/morphia-1.2.12/conf</location>
 		</link>
 		<link>
 			<name>conf/secure</name>
 			<type>2</type>
-			<location>E:/play-1.4.2/modules/secure/conf</location>
-		</link>
-		<link>
-			<name>public/docviewer</name>
-			<type>2</type>
-			<location>E:/play-1.4.2/modules/docviewer/public</location>
+			<location>E:/play-1.2.7.2/modules/secure/conf</location>
 		</link>
 	</linkedResources>
 </projectDescription>

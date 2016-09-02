@@ -12,9 +12,9 @@
             </tr>
         </thead>
         <tbody>
-
+#{crud.types}
 	#{if session.admin_role=='1'}
-		#{if type.name=='AdminManagements' || type.name=='SeaLife_CHs' || type.name=='SeaLife_ENs' || type.name=='Target_CHs' || type.name=='Target_ENs'}
+		#{if type.name=='Roles' || type.name=='AdminManagements' || type.name=='SeaLife_CHs' || type.name=='SeaLife_ENs' || type.name=='Target_CHs' || type.name=='Target_ENs'}
           <tr style="text-align: left; BACKGROUND-COLOR: #EEEEEE;">
               <td height="30px">
                   <a href="${type.listAction}?role=${session.admin_role}&id=${session.admin_id}">&{type.name}</a>
@@ -37,7 +37,7 @@
           </tr>
           #{/if}
 	#{/if}
-
+#{/crud.types}
         </tbody>
     </table>
 

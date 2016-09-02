@@ -5,13 +5,13 @@
     <h2 id="crudListTitle">&{'crud.list.title', type.name}</h2>
       <!-- Main jumbotron for a primary marketing message or call to action -->
       <div class="jumbotron">
-        <h1>${object.common_name_ch}</h1>
-        <p>${object.description_ch}</p>
-        #{if img_ch == null}
-        <a href="${object.img_link_ch}" target="_blank"><img src="${object.img_link_ch}" width="300" height="200"/></a>
+        <h1>${object.common_name}</h1>
+        <p>${object.description}</p>
+        #{if img == null}
+        <a href="${object.img_link}" target="_blank"><img src="${object.img_link}" width="300" height="200"/></a>
         #{/if}
         #{else}
-        <a href="@{attachment(object.id+'','img_ch')} " target="_blank"><img src="@{attachment(object.id+'','img_ch')}" /></a>
+        <a href="@{attachment(object.id+'','img')} " target="_blank"><img src="@{attachment(object.id+'','img')}" /></a>
         #{/else}
       </div>
 
@@ -46,7 +46,7 @@
               <h3 class="panel-title">创建日期</h3>
             </div>
             <div class="panel-body">
-              ${object.created_at_ch}
+              ${object._created}
             </div>
           </div>
         </div><!-- /.col-sm-4 -->
@@ -57,7 +57,7 @@
               <h3 class="panel-title">更新日期</h3>
             </div>
             <div class="panel-body">
-             ${object.updated_at_ch}
+             ${object._modified}
             </div>
           </div>
         </div><!-- /.col-sm-4 -->
@@ -68,7 +68,7 @@
               <h3 class="panel-title">登记号</h3>
             </div>
             <div class="panel-body">
-              ${object.title_ch}
+              ${object.title}
             </div>
           </div>
         </div><!-- /.col-sm-4 -->
@@ -87,7 +87,7 @@
               <h3 class="panel-title">常用名</h3>
             </div>
             <div class="panel-body">
-              ${object.common_name_ch}
+              ${object.common_name}
             </div>
           </div>
         </div><!-- /.col-sm-4 -->
@@ -98,7 +98,7 @@
               <h3 class="panel-title">概述</h3>
             </div>
             <div class="panel-body">
-             ${object.description_ch}
+             ${object.description}
             </div>
           </div>
         </div><!-- /.col-sm-4 -->
@@ -109,7 +109,7 @@
               <h3 class="panel-title">化合物类型</h3>
             </div>
             <div class="panel-body">
-              ${object.type_ch}
+              ${object.type}
             </div>
           </div>
         </div><!-- /.col-sm-4 -->
@@ -120,11 +120,11 @@
               <h3 class="panel-title">化学结构</h3>
             </div>
             <div class="panel-body">
-              #{if img_ch == null}
-        <a href="${object.img_link_ch}" target="_blank"><img src="${object.img_link_ch}"/></a>
+              #{if img == null}
+        <a href="${object.img_link}" target="_blank"><img src="${object.img_link}"/></a>
         #{/if}
         #{else}
-        <a href="@{attachment(object.id+'','img_ch')} " target="_blank"><img src="@{attachment(object.id+'','img_ch')}" /></a>
+        <a href="@{attachment(object.id+'','img')} " target="_blank"><img src="@{attachment(object.id+'','img')}" /></a>
         #{/else}
             </div>
           </div>
@@ -136,7 +136,7 @@
               <h3 class="panel-title">同系物</h3>
             </div>
             <div class="panel-body">
-              ${object.synonyms_ch}
+              ${object.synonyms}
             </div>
           </div>
         </div><!-- /.col-sm-4 -->
@@ -147,7 +147,7 @@
               <h3 class="panel-title">化学式</h3>
             </div>
             <div class="panel-body">
-              ${object.chemical_formula_ch}
+              ${object.chemical_formula}
             </div>
             </div>
         </div><!-- /.col-sm-4 -->
@@ -158,7 +158,7 @@
 					<h3 class="panel-title">平均分子量</h3>
 	            </div>
 				<div class="panel-body">
-					${object.weight_ch}
+					${object.weight}
 				</div>
 			</div>
 		</div><!-- /.col-sm-4 -->
@@ -169,7 +169,7 @@
               <h3 class="panel-title">IUPAC名称</h3>
             </div>
             <div class="panel-body">
-              ${object.iupac_ch}
+              ${object.iupac}
             </div>
             </div>
         </div><!-- /.col-sm-4 -->
@@ -180,7 +180,7 @@
               <h3 class="panel-title">化学文摘号（CAS）</h3>
             </div>
             <div class="panel-body">
-              ${object.cas_ch}
+              ${object.cas}
             </div>
             </div>
         </div><!-- /.col-sm-4 -->
@@ -191,7 +191,7 @@
               <h3 class="panel-title">分子结构标识符</h3>
             </div>
             <div class="panel-body">
-              ${object.inchi_identifier_ch}
+              ${object.inchi_identifier}
             </div>
             </div>
         </div><!-- /.col-sm-4 -->
@@ -202,7 +202,7 @@
               <h3 class="panel-title">分子结构重点</h3>
             </div>
             <div class="panel-body">
-              ${object.inchi_key_ch}
+              ${object.inchi_key}
             </div>
             </div>
         </div><!-- /.col-sm-4 -->
@@ -213,7 +213,7 @@
               <h3 class="panel-title">典范SMILES</h3>
             </div>
             <div class="panel-body">
-              ${object.smiles_canonical_ch}
+              ${object.smiles_canonical}
             </div>
             </div>
         </div><!-- /.col-sm-4 -->
@@ -224,7 +224,7 @@
               <h3 class="panel-title">异构SMILES</h3>
             </div>
             <div class="panel-body">
-              ${object.smiles_isomeric_ch}
+              ${object.smiles_isomeric}
             </div>
             </div>
         </div><!-- /.col-sm-4 -->
@@ -244,7 +244,7 @@
               <h3 class="panel-title">界</h3>
             </div>
             <div class="panel-body">
-              ${object.kingdom_ch}
+              ${object.kingdom}
             </div>
             </div>
         </div><!-- /.col-sm-4 -->
@@ -255,7 +255,7 @@
               <h3 class="panel-title">超家族</h3>
             </div>
             <div class="panel-body">
-              ${object.super_class_ch}
+              ${object.super_class}
             </div>
             </div>
         </div><!-- /.col-sm-4 -->
@@ -266,7 +266,7 @@
               <h3 class="panel-title">家族</h3>
             </div>
             <div class="panel-body">
-              ${object.class_ch}
+              ${object.class}
             </div>
             </div>
         </div><!-- /.col-sm-4 -->
@@ -277,7 +277,7 @@
               <h3 class="panel-title">亚家族</h3>
             </div>
             <div class="panel-body">
-              ${object.sub_class_ch}
+              ${object.sub_class}
             </div>
             </div>
         </div><!-- /.col-sm-4 -->
@@ -288,7 +288,7 @@
               <h3 class="panel-title">Direct Parent</h3>
             </div>
             <div class="panel-body">
-              ${object.direct_parent_ch}
+              ${object.direct_parent}
             </div>
             </div>
         </div><!-- /.col-sm-4 -->
@@ -299,7 +299,7 @@
               <h3 class="panel-title">Alternative Parents</h3>
             </div>
             <div class="panel-body">
-              ${object.alternative_parents_ch}
+              ${object.alternative_parents}
             </div>
             </div>
         </div><!-- /.col-sm-4 -->
@@ -310,7 +310,7 @@
               <h3 class="panel-title">Molecular Framework</h3>
             </div>
             <div class="panel-body">
-              ${object.molecular_framework_ch}
+              ${object.molecular_framework}
             </div>
             </div>
         </div><!-- /.col-sm-4 -->
@@ -321,7 +321,7 @@
               <h3 class="panel-title">取代基</h3>
             </div>
             <div class="panel-body">
-              ${object.substituents_ch}
+              ${object.substituents}
             </div>
             </div>
         </div><!-- /.col-sm-4 -->
@@ -332,7 +332,7 @@
               <h3 class="panel-title">表面描述</h3>
             </div>
             <div class="panel-body">
-              ${object.external_descriptors_ch}
+              ${object.external_descriptors}
             </div>
             </div>
         </div><!-- /.col-sm-4 -->
@@ -351,7 +351,7 @@
 				<h3 class="panel-title">外观</h3>
             </div>
 			<div class="panel-body">
-				${object.appearance_ch}
+				${object.appearance}
 			</div>
 		</div>
 	</div><!-- /.col-sm-4 -->
@@ -362,7 +362,7 @@
 				<h3 class="panel-title">熔点</h3>
             </div>
 			<div class="panel-body">
-				${object.melting_point_ch}
+				${object.melting_point}
 			</div>
 		</div>
 	</div><!-- /.col-sm-4 -->
@@ -373,7 +373,7 @@
 				<h3 class="panel-title">沸点</h3>
             </div>
 			<div class="panel-body">
-				${object.boiling_point_ch}
+				${object.boiling_point}
 			</div>
 		</div>
 	</div><!-- /.col-sm-4 -->
@@ -384,7 +384,7 @@
 				<h3 class="panel-title">密度</h3>
             </div>
 			<div class="panel-body">
-				${object.density_ch}
+				${object.density}
 			</div>
 		</div>
 	</div><!-- /.col-sm-4 -->
@@ -395,7 +395,7 @@
 				<h3 class="panel-title">闪点</h3>
             </div>
 			<div class="panel-body">
-				${object.flash_point_ch}
+				${object.flash_point}
 			</div>
 		</div>
 	</div><!-- /.col-sm-4 -->
@@ -406,7 +406,7 @@
 				<h3 class="panel-title">溶解度</h3>
             </div>
 			<div class="panel-body">
-				${object.solubility_ch}
+				${object.solubility}
 			</div>
 		</div>
 	</div><!-- /.col-sm-4 -->
@@ -417,7 +417,7 @@
 				<h3 class="panel-title">比重</h3>
             </div>
 			<div class="panel-body">
-				${object.specific_gravity_ch}
+				${object.specific_gravity}
 			</div>
 		</div>
 	</div><!-- /.col-sm-4 -->
@@ -428,7 +428,7 @@
 				<h3 class="panel-title">蒸气压</h3>
             </div>
 			<div class="panel-body">
-				${object.vapour_pressure_ch}
+				${object.vapour_pressure}
 			</div>
 		</div>
 	</div><!-- /.col-sm-4 -->
@@ -459,7 +459,7 @@
 				<h3 class="panel-title">暴露途径</h3>
             </div>
 			<div class="panel-body">
-				${object.route_of_exposure_ch}
+				${object.route_of_exposure}
 			</div>
 		</div>
 	</div><!-- /.col-sm-4 -->
@@ -470,7 +470,7 @@
 				<h3 class="panel-title">作用机制</h3>
             </div>
 			<div class="panel-body">
-				${object.mechanism_of_action_ch}
+				${object.mechanism_of_action}
 			</div>
 		</div>
 	</div><!-- /.col-sm-4 -->
@@ -481,7 +481,7 @@
 				<h3 class="panel-title">相互作用蛋白</h3>
             </div>
 			<div class="panel-body">
-				${object.interacting_proteins_ch}
+				${object.interacting_proteins}
 			</div>
 		</div>
 	</div><!-- /.col-sm-4 -->
@@ -492,7 +492,7 @@
 				<h3 class="panel-title">代谢</h3>
             </div>
 			<div class="panel-body">
-				${object.metabolism_ch}
+				${object.metabolism}
 			</div>
 		</div>
 	</div><!-- /.col-sm-4 -->
@@ -503,7 +503,7 @@
 				<h3 class="panel-title">毒性</h3>
             </div>
 			<div class="panel-body">
-				${object.toxicity_ch}
+				${object.toxicity}
 			</div>
 		</div>
 	</div><!-- /.col-sm-4 -->
@@ -514,7 +514,7 @@
 				<h3 class="panel-title">致死剂量</h3>
             </div>
 			<div class="panel-body">
-				${object.lethaldose_ch}
+				${object.lethaldose}
 			</div>
 		</div>
 	</div><!-- /.col-sm-4 -->
@@ -525,7 +525,7 @@
 				<h3 class="panel-title">致癌性</h3>
             </div>
 			<div class="panel-body">
-				${object.carcinogenicity_ch}
+				${object.carcinogenicity}
 			</div>
 		</div>
 	</div><!-- /.col-sm-4 -->
@@ -536,7 +536,7 @@
 				<h3 class="panel-title">用途</h3>
             </div>
 			<div class="panel-body">
-				${object.use_source_ch}
+				${object.use_source}
 			</div>
 		</div>
 	</div><!-- /.col-sm-4 -->
@@ -547,7 +547,7 @@
 				<h3 class="panel-title">最小的风险水平</h3>
             </div>
 			<div class="panel-body">
-				${object.min_risk_level_ch}
+				${object.min_risk_level}
 			</div>
 		</div>
 	</div><!-- /.col-sm-4 -->
@@ -558,7 +558,7 @@
 				<h3 class="panel-title">健康影响</h3>
             </div>
 			<div class="panel-body">
-				${object.health_effects_ch}
+				${object.health_effects}
 			</div>
 		</div>
 	</div><!-- /.col-sm-4 -->
@@ -569,7 +569,7 @@
 				<h3 class="panel-title">症状</h3>
             </div>
 			<div class="panel-body">
-				${object.symptoms_ch}
+				${object.symptoms}
 			</div>
 		</div>
 	</div><!-- /.col-sm-4 -->
@@ -580,7 +580,7 @@
 				<h3 class="panel-title">治疗</h3>
             </div>
 			<div class="panel-body">
-				${object.treatment_ch}
+				${object.treatment}
 			</div>
 		</div>
 	</div><!-- /.col-sm-4 -->
@@ -594,7 +594,7 @@
 			#{if object.targets!=null && object.targets.size()>0}
 			  %{count = 1}%
 			#{list items:object.targets, as:'c'}
-				${count}. ${c.name_ch}<br/>&nbsp;&nbsp;&nbsp;&nbsp;UniProt ID:${c.uniprot}%{count++}%<br/>
+				${count}. ${c.name}<br/>&nbsp;&nbsp;&nbsp;&nbsp;UniProt ID:${c.uniprot}%{count++}%<br/>
 			#{/list}
 			#{/if}
 			#{else}
@@ -618,7 +618,7 @@
 				<h3 class="panel-title">药物数据库(DrugBank ID)</h3>
             </div>
 			<div class="panel-body">
-				<a href="${object.drugbank_link_ch}" target="_blank">${object.drugbank_ch}</a>
+				<a href="${object.drugbank_link}" target="_blank">${object.drugbank}</a>
 			</div>
 		</div>
 	</div><!-- /.col-sm-4 -->
@@ -629,7 +629,7 @@
 				<h3 class="panel-title">有机小分子生物活性数据库(PubChem Compound ID)</h3>
             </div>
 			<div class="panel-body">
-				<a href="${object.pubchem_link_ch}" target="_blank">${object.pubchem_ch}</a>
+				<a href="${object.pubchem_link}" target="_blank">${object.pubchem}</a>
 			</div>
 		</div>
 	</div><!-- /.col-sm-4 -->
@@ -640,7 +640,7 @@
 				<h3 class="panel-title">京都基因与基因组百科全书生化复合物及反应(KEGG ID)</h3>
             </div>
 			<div class="panel-body">
-				<a href="${object.kegg_compound_link_ch}" target="_blank">${object.kegg_compound_ch}</a>
+				<a href="${object.kegg_compound_link}" target="_blank">${object.kegg_compound}</a>
 			</div>
 		</div>
 	</div><!-- /.col-sm-4 -->
@@ -651,7 +651,7 @@
 				<h3 class="panel-title">用蛋白质资源(UniProt ID)</h3>
             </div>
 			<div class="panel-body">
-				<a href="${object.uniprot_link_ch}" target="_blank">${object.uniprot_ch}</a>
+				<a href="${object.uniprot_link}" target="_blank">${object.uniprot}</a>
 			</div>
 		</div>
 	</div><!-- /.col-sm-4 -->
@@ -662,7 +662,7 @@
 				<h3 class="panel-title">在线《人类孟德尔遗传》(OMIM ID)</h3>
             </div>
 			<div class="panel-body">
-				<a href="${object.omim_link_ch}" target="_blank">${object.omim_ch}</a>
+				<a href="${object.omim_link}" target="_blank">${object.omim}</a>
 			</div>
 		</div>
 	</div><!-- /.col-sm-4 -->
@@ -673,7 +673,7 @@
 				<h3 class="panel-title">生物相关化学实体(ChEBI ID)</h3>
             </div>
 			<div class="panel-body">
-				<a href="${object.chebi_link_ch}" target="_blank">${object.chebi_ch}</a>
+				<a href="${object.chebi_link}" target="_blank">${object.chebi}</a>
 			</div>
 		</div>
 	</div><!-- /.col-sm-4 -->
@@ -684,7 +684,7 @@
 				<h3 class="panel-title">生物百科全书数据库(BioCyc ID)</h3>
             </div>
 			<div class="panel-body">
-				<a href="${object.biocyc_link_ch}" target="_blank">${object.biocyc_ch}</a>
+				<a href="${object.biocyc_link}" target="_blank">${object.biocyc}</a>
 			</div>
 		</div>
 	</div><!-- /.col-sm-4 -->
@@ -695,7 +695,7 @@
 				<h3 class="panel-title">比较毒理基因组学数据库(CTD ID)</h3>
             </div>
 			<div class="panel-body">
-				<a href="${object.ctd_link_ch}" target="_blank">${object.ctd_ch}</a>
+				<a href="${object.ctd_link}" target="_blank">${object.ctd}</a>
 			</div>
 		</div>
 	</div><!-- /.col-sm-4 -->
@@ -706,7 +706,7 @@
 				<h3 class="panel-title">蛋白质化合物作用网数据库(Stitch ID)</h3>
             </div>
 			<div class="panel-body">
-				<a href="${object.stitch_link_ch}" target="_blank">${object.stitch_ch}</a>
+				<a href="${object.stitch_link}" target="_blank">${object.stitch}</a>
 			</div>
 		</div>
 	</div><!-- /.col-sm-4 -->
@@ -717,7 +717,7 @@
 				<h3 class="panel-title">蛋白质数据库(PDB ID)</h3>
             </div>
 			<div class="panel-body">
-				<a href="${object.pdb_ch}" target="_blank">${object.pdb_ch}</a>
+				<a href="${object.pdb}" target="_blank">${object.pdb}</a>
 			</div>
 		</div>
 	</div><!-- /.col-sm-4 -->
@@ -728,7 +728,7 @@
 				<h3 class="panel-title">汇总计算毒理学资源(ACToR ID)</h3>
             </div>
 			<div class="panel-body">
-				<a href="${object.actor_link_ch}" target="_blank">${object.actor_ch}</a>
+				<a href="${object.actor_link}" target="_blank">${object.actor}</a>
 			</div>
 		</div>
 	</div><!-- /.col-sm-4 -->
@@ -739,7 +739,7 @@
 				<h3 class="panel-title">维基百科</h3>
             </div>
 			<div class="panel-body">
-				<a href="${object.wikipedia_ch}" target="_blank">${object.wikipedia_ch}</a>
+				<a href="${object.wikipedia}" target="_blank">${object.wikipedia}</a>
 			</div>
 		</div>
 	</div><!-- /.col-sm-4 -->
@@ -750,7 +750,7 @@
 				<h3 class="panel-title">剧毒化合物数据库</h3>
             </div>
 			<div class="panel-body">
-				${object.supertoxic_ch}
+				${object.supertoxic}
 			</div>
 		</div>
 	</div><!-- /.col-sm-4 -->
@@ -766,8 +766,8 @@
         <div class="well">
         <p>
         %{String[] arr;count2 = 1;
-           if (object.reference_ch != null && object.reference_ch != ''){
-        	arr = object.reference_ch.split("&br");
+           if (object.reference != null && object.reference != ''){
+        	arr = object.reference.split("&br");
         	}
         	
         	for(String s:arr){

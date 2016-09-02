@@ -10,6 +10,9 @@ public class Security extends Secure.Security {
     static boolean authenticate(String username, String password) {
 
 		if(AdminManagement.count() == 0){
+			session.put("admin_id", "1");
+			session.put("admin_name", "admin");
+			session.put("admin_role", 1);
 			return "admin".equals(username)&&"admin".equals(password);
 		}
     	//初始化状态
@@ -17,9 +20,9 @@ public class Security extends Secure.Security {
 		
 		boolean flag = false;
 		if(user != null && user.pwd.equals(password)){
-//			session.put("admin_id", user.id);
-//			session.put("admin_name", user.name);
-//			session.put("admin_role", user.role.id);
+			session.put("admin_id", user.getIdAsStr());
+			session.put("admin_name", user.name);
+			session.put("admin_role", user.role.getIdAsStr());
 			flag = true;
 		}
 		return flag;

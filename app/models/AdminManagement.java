@@ -1,37 +1,57 @@
 package models;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import java.util.Date;
 
+import play.data.binding.As;
 import play.data.validation.MaxSize;
 import play.data.validation.MinSize;
 import play.data.validation.Password;
 import play.data.validation.Required;
-import play.modules.mongo.MongoEntity;
-import play.modules.mongo.MongoModel;
+import play.modules.morphia.Model;
+import utils.DateUtil;
 
-@MongoEntity(value = "appadmin")
-public class AdminManagement extends MongoModel {
+import com.google.code.morphia.annotations.Entity;
+import com.google.code.morphia.annotations.Id;
+import com.google.code.morphia.annotations.Reference;
 
+import controllers.CRUD.Hidden;
+
+@Entity(value="admin")
+public class AdminManagement extends Model {
+
+	
+	@Hidden
+	public Long _created;
+	@Hidden
+	public Long _modified;
 	@Required
-	@MaxSize(15)
-	@MinSize(3)
+	@MaxSize(value = 20)
+	@MinSize(value = 6)
 	public String name;
 
 	@Required
-	@MaxSize(15)
-	@MinSize(6)
 	@Password
+	@MaxSize(value = 10)
+	@MinSize(value = 6)
 	public String pwd;
-	
 	@Required
-	@ManyToOne(fetch=FetchType.LAZY,cascade=javax.persistence.CascadeType.REFRESH, optional = true)
+	@Reference
 	public Role role;
-	
+	@Hidden
 	public String auth;
 
+
+	 public AdminManagement(String name, String password, Role role, String auth) {
+	        this.name = name;
+	        this.role = role;
+	        this.pwd = password;
+	        this.auth = auth;
+	    }
+	 
+    public static AdminManagement findByUandP(String name, String pwd) {
+        return find("byNameAndPwd", name, pwd).first();
+    }
+	    
 	public String toString() {
 		return name;
 	}

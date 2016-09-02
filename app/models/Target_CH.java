@@ -2,77 +2,135 @@ package models;
 
 import java.util.Date;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
-
 import play.data.validation.MaxSize;
 import play.data.validation.Required;
-import play.modules.mongo.MongoEntity;
-import play.modules.mongo.MongoModel;
+import play.modules.morphia.Model;
+import com.google.code.morphia.annotations.Entity;
 
-@MongoEntity(value = "sealife_target_ch")
-public class Target_CH extends MongoModel {
+@Entity(value = "sealife_target_ch")
+public class Target_CH extends Model {
 
 	
-	public Date created_at_ch; // 在创造
+	public Date created_at; // 在创造
 	
-	public Date updated_at_ch; // 更新
-	@MaxSize(200)
-	public String name_ch;//Name
-	@MaxSize(50)
-	public String uniprot_ch;//UniProt
-	@MaxSize(1000)
-	public String description_ch;//Description
-	@MaxSize(1000)
-	public String genesequence_ch;//Genesequence
-	@MaxSize(1000)
-	public String proteinsequence_ch;//Proteinsequence
-	@MaxSize(50)
-	public String gene_name_ch;//Gene Name
-	@MaxSize(50)
-	public String number_of_residues_ch;//Number of Residues
-	@MaxSize(50)
-	public String molecular_weight_ch;//Molecular Weight
-	@MaxSize(50)
-	public String theoretical_pi_ch;//Theoretical PI
-	@MaxSize(1000)
-	public String go_classification_ch;//GO Classification
-	@MaxSize(200)
-	public String general_function_ch;//General Function
-	@MaxSize(100)
-	public String domain_function_ch;//Domain Function
-	@MaxSize(50)
-	public String hgnc_id_ch;//Hgnc ID
-	@MaxSize(200)
-	public String cellular_location_ch;//Cellular Location
-	@MaxSize(50)
-	public String genbank_id_ch;//GenBank ID
-	@MaxSize(500)
-	public String pathway_ch;//Pathway
-	@MaxSize(500)
-	public String reaction_ch;//Reaction
-	@MaxSize(500)
-	public String signals_ch;//Signals
-	@MaxSize(1000)
-	public String transmembrane_regions_ch;//Transmembrane Regions
-	@MaxSize(200)
-	public String essentiality_ch;//Essentiality
-	@MaxSize(50)
-	public String pdb_id_ch;//PDB ID
-	@MaxSize(50)
-	public String genecard_id_ch;//GeneCard ID
-	@MaxSize(50)
-	public String genatlas_id_ch;//genatlas ID
-	@MaxSize(50)
-	public String genbank_id_gene_ch;//GenBank ID Gene
-	@MaxSize(500)
-	public String chromosome_location_ch;//Chromosome Location
-	@MaxSize(1000)
-	public String locus_ch;//Locus
+	public Date updated_at; // 更新
+	
+	public String name;//Name
+	
+	public String uniprot;//UniProt
+	
+	public String description;//Description
+	
+	public String genesequence;//Genesequence
+	
+	public String proteinsequence;//Proteinsequence
+	
+	public String gene_name;//Gene Name
+	
+	public String number_of_residues;//Number of Residues
+	
+	public String molecular_weight;//Molecular Weight
+	
+	public String theoretical_pi;//Theoretical PI
+	
+	public String go_classification;//GO Classification
+	
+	public String general_function;//General Function
+	
+	public String domain_function;//Domain Function
+	
+	public String hgnc_id;//Hgnc ID
+	
+	public String cellular_location;//Cellular Location
+	
+	public String genbank_id;//GenBank ID
+	
+	public String pathway;//Pathway
+	
+	public String reaction;//Reaction
+	
+	public String signals;//Signals
+	
+	public String transmembrane_regions;//Transmembrane Regions
+	
+	public String essentiality;//Essentiality
+	
+	public String pdb_id;//PDB ID
+	
+	public String genecard_id;//GeneCard ID
+	
+	public String genatlas_id;//genatlas ID
+	
+	public String genbank_id_gene;//GenBank ID Gene
+	
+	public String chromosome_location;//Chromosome Location
+	
+	public String locus;//Locus
 	@Required
-	public String auth_ch;
+	public String auth;
+	
+	public Target_CH(Date created_at,
+			Date updated_at,
+			String name,
+			String uniprot,
+			String description,
+			String genesequence,
+			String proteinsequence,
+			String gene_name,
+			String number_of_residues,
+			String molecular_weight,
+			String theoretical_pi,
+			String go_classification,
+			String general_function,
+			String domain_function,
+			String hgnc_id,
+			String cellular_location,
+			String genbank_id,
+			String pathway,
+			String reaction,
+			String signals,
+			String transmembrane_regions,
+			String essentiality,
+			String pdb_id,
+			String genecard_id,
+			String genatlas_id,
+			String genbank_id_gene,
+			String chromosome_location,
+			String locus,
+			String auth){
+		this.created_at = created_at;
+		this.updated_at = updated_at;
+		this.name = name;
+		this.uniprot = uniprot;
+		this.description = description;
+		this.genesequence = genesequence;
+		this.proteinsequence = proteinsequence;
+		this.gene_name = gene_name;
+		this.number_of_residues = number_of_residues;
+		this.molecular_weight = molecular_weight;
+		this.theoretical_pi = theoretical_pi;
+		this.go_classification = go_classification;
+		this.general_function = general_function;
+		this.domain_function = domain_function;
+		this.hgnc_id = hgnc_id;
+		this.cellular_location = cellular_location;
+		this.genbank_id = genbank_id;
+		this.pathway = pathway;
+		this.reaction = reaction;
+		this.signals = signals;
+		this.transmembrane_regions = transmembrane_regions;
+		this.essentiality = essentiality;
+		this.pdb_id = pdb_id;
+		this.genecard_id = genecard_id;
+		this.genatlas_id = genatlas_id;
+		this.genbank_id_gene = genbank_id_gene;
+		this.chromosome_location = chromosome_location;
+		this.locus = locus;
+		this.auth = auth;
+	}
+	
 	public String toString() {
-		return uniprot_ch;
+		return uniprot;
 	}
 
 }

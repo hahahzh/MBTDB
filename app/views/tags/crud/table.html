@@ -8,7 +8,6 @@
 %{
     }
 }%
-
 <table>
     <thead>
         <tr>
@@ -62,7 +61,11 @@
                                 
                              %{ } }%
                         %{ } else { }%
-                            ${object[field]?.escape()?.raw()}
+                        	%{ if(object[field] != null && (_caller.type.getField(field).name == '_created' || _caller.type.getField(field).name == '_modified')) { }%
+                        		${new Date(object[field]).format()}	
+                        	%{ } else { }%	
+                            	${object[field]?.escape()?.raw()}
+                        	%{ } }%    	
                         %{ } }%
                     %{ } }%
                 %{ } }%
