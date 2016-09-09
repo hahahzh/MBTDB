@@ -5,6 +5,9 @@
 # Home page
 GET     /                                       Application.index
 GET		/setLang								Application.setLang
+GET		/dataupload								Application.dataUpload
+POST	/dataprocess							Application.dp
+
 
 # Ignore favicon requests
 GET     /favicon.ico                            404

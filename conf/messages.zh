@@ -242,7 +242,7 @@ ctd_link=比较毒理基因组学数据库链接
 stitch_link=蛋白质化合物作用网数据库链接
 pdb_link=蛋白质数据库链接
 actor_link=汇总计算毒理学资源链接
-
+Targets=靶标
 created_at_en=Creation Date
 updated_at_en=Update Date
 title_en=Accession Number
@@ -306,7 +306,8 @@ actor_en=ACToR ID
 wikipedia_en=Wikipedia Link
 supertoxic_en=Supertoxic
 reference_en=References
-
+_created=创建时间
+_modified=修改时间 
 name_en=Name
 uniprot_en=UniProt
 description_en=Description

@@ -5,72 +5,81 @@ import java.util.Date;
 import play.data.validation.MaxSize;
 import play.data.validation.Required;
 import play.modules.morphia.Model;
+
 import com.google.code.morphia.annotations.Entity;
+
+import controllers.CRUD.Hidden;
 
 @Entity(value = "sealife_target_ch")
 public class Target_CH extends Model {
 
 	
-	public Date created_at; // 在创造
-	
-	public Date updated_at; // 更新
-	
+	@Hidden
+	public Long _created;
+	@Hidden
+	public Long _modified;
+	@Required
+	@MaxSize(200)
 	public String name;//Name
-	
+	@Required
+	@MaxSize(50)
 	public String uniprot;//UniProt
-	
+	@MaxSize(2000)
 	public String description;//Description
-	
+	@MaxSize(2000)
 	public String genesequence;//Genesequence
-	
+	@MaxSize(2000)
 	public String proteinsequence;//Proteinsequence
-	
+	@MaxSize(100)
 	public String gene_name;//Gene Name
-	
+	@MaxSize(3000)
+	public String synonyms;
+	@MaxSize(100)
 	public String number_of_residues;//Number of Residues
-	
+	@MaxSize(100)
 	public String molecular_weight;//Molecular Weight
-	
+	@MaxSize(100)
 	public String theoretical_pi;//Theoretical PI
-	
+	@MaxSize(2000)
 	public String go_classification;//GO Classification
-	
+	@MaxSize(500)
 	public String general_function;//General Function
-	
+	@MaxSize(200)
 	public String domain_function;//Domain Function
-	
+	@MaxSize(100)
 	public String hgnc_id;//Hgnc ID
-	
+	@MaxSize(500)
 	public String cellular_location;//Cellular Location
-	
+	@MaxSize(100)
 	public String genbank_id;//GenBank ID
-	
+	@MaxSize(1000)
 	public String pathway;//Pathway
-	
+	@MaxSize(1000)
 	public String reaction;//Reaction
-	
+	@MaxSize(1000)
 	public String signals;//Signals
-	
+	@MaxSize(2000)
 	public String transmembrane_regions;//Transmembrane Regions
-	
+	@MaxSize(500)
 	public String essentiality;//Essentiality
-	
+	@MaxSize(100)
 	public String pdb_id;//PDB ID
-	
+	@MaxSize(100)
 	public String genecard_id;//GeneCard ID
-	
+	@MaxSize(100)
 	public String genatlas_id;//genatlas ID
-	
+	@MaxSize(100)
 	public String genbank_id_gene;//GenBank ID Gene
-	
+	@MaxSize(1000)
 	public String chromosome_location;//Chromosome Location
-	
+	@MaxSize(2000)
 	public String locus;//Locus
 	@Required
+	@Hidden
 	public String auth;
-	
-	public Target_CH(Date created_at,
-			Date updated_at,
+	public Target_CH(){}
+	public Target_CH(Long created_at,
+			Long updated_at,
 			String name,
 			String uniprot,
 			String description,
@@ -98,8 +107,8 @@ public class Target_CH extends Model {
 			String chromosome_location,
 			String locus,
 			String auth){
-		this.created_at = created_at;
-		this.updated_at = updated_at;
+		this._created = created_at;
+		this._modified = updated_at;
 		this.name = name;
 		this.uniprot = uniprot;
 		this.description = description;

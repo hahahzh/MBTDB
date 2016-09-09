@@ -7,11 +7,11 @@
       <div class="jumbotron">
         <h1>${object.common_name}</h1>
         <p>${object.description}</p>
-        #{if img == null}
-        <a href="${object.img_link}" target="_blank"><img src="${object.img_link}" width="300" height="200"/></a>
+        #{if img_link == null}
+        <a href="@{attachment(object.id+'','img')} " target="_blank"><img height="300" width="600" src="@{attachment(object.id+'','img')}" /></a>
         #{/if}
         #{else}
-        <a href="@{attachment(object.id+'','img')} " target="_blank"><img src="@{attachment(object.id+'','img')}" /></a>
+        <a href="${object.img_link}" target="_blank"><img src="${object.img_link}" height="300" width="600" /></a>
         #{/else}
       </div>
 
@@ -120,11 +120,11 @@
               <h3 class="panel-title">化学结构</h3>
             </div>
             <div class="panel-body">
-              #{if img == null}
-        <a href="${object.img_link}" target="_blank"><img src="${object.img_link}"/></a>
+              #{if img_link == null}
+        	<a href="@{attachment(object.id+'','img')} " target="_blank"><img src="@{attachment(object.id+'','img')}" /></a>
         #{/if}
         #{else}
-        <a href="@{attachment(object.id+'','img')} " target="_blank"><img src="@{attachment(object.id+'','img')}" /></a>
+        <a href="${object.img_link}" target="_blank"><img src="${object.img_link}"/></a>
         #{/else}
             </div>
           </div>

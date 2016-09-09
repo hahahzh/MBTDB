@@ -141,8 +141,9 @@ public class SeaLife_CH extends Model {
 	public String reference;
 	public Boolean isShow;
 	@Required
+	@Hidden
 	public String auth;
-	
+	public SeaLife_CH(){}
 	 public SeaLife_CH(Date created_at,
 			 Date updated_at,
 			 String title,

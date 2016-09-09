@@ -5,13 +5,13 @@
     <h2 id="crudListTitle">&{'crud.list.title', type.name}</h2>
       <!-- Main jumbotron for a primary marketing message or call to action -->
       <div class="jumbotron">
-        <h1>${object.common_name_en}</h1>
-        <p>${object.description_en}</p>
-        #{if img_en == null}
-        <a href="${object.img_link_en}" target="_blank"><img src="${object.img_link_en}" width="300" height="200"/></a>
+        <h1>${object.common_name}</h1>
+        <p>${object.description}</p>
+        #{if img_link == null}
+        <a href="@{attachment(object.id+'','img')} " target="_blank"><img height="300" width="600" src="@{attachment(object.id+'','img')}" /></a>
         #{/if}
         #{else}
-        <a href="@{attachment(object.id+'','img_en')} " target="_blank"><img src="@{attachment(object.id+'','img_en')}" /></a>
+        <a href="${object.img_link}" target="_blank"><img src="${object.img_link}" height="300" width="600" /></a>
         #{/else}
       </div>
 
@@ -46,7 +46,7 @@
               <h3 class="panel-title">Creation Date</h3>
             </div>
             <div class="panel-body">
-              ${object.created_at_en}
+              ${object._created}
             </div>
           </div>
         </div><!-- /.col-sm-4 -->
@@ -57,7 +57,7 @@
               <h3 class="panel-title">Update Date</h3>
             </div>
             <div class="panel-body">
-             ${object.updated_at_en}
+             ${object._modified}
             </div>
           </div>
         </div><!-- /.col-sm-4 -->
@@ -68,7 +68,7 @@
               <h3 class="panel-title">Accession Number</h3>
             </div>
             <div class="panel-body">
-              ${object.title_en}
+              ${object.title}
             </div>
           </div>
         </div><!-- /.col-sm-4 -->
@@ -87,7 +87,7 @@
               <h3 class="panel-title">Common Name</h3>
             </div>
             <div class="panel-body">
-              ${object.common_name_en}
+              ${object.common_name}
             </div>
           </div>
         </div><!-- /.col-sm-4 -->
@@ -98,7 +98,7 @@
               <h3 class="panel-title">Description</h3>
             </div>
             <div class="panel-body">
-             ${object.description_en}
+             ${object.description}
             </div>
           </div>
         </div><!-- /.col-sm-4 -->
@@ -109,7 +109,7 @@
               <h3 class="panel-title">Compound Type</h3>
             </div>
             <div class="panel-body">
-              ${object.type_en}
+              ${object.type}
             </div>
           </div>
         </div><!-- /.col-sm-4 -->
@@ -120,11 +120,11 @@
               <h3 class="panel-title">Chemical Structure</h3>
             </div>
             <div class="panel-body">
-              #{if img_en == null}
-        <a href="${object.img_link_en}" target="_blank"><img src="${object.img_link_en}"/></a>
+              #{if img_link == null}
+        <a href="@{attachment(object.id+'','img')} " target="_blank"><img src="@{attachment(object.id+'','img')}" /></a>
         #{/if}
         #{else}
-        <a href="@{attachment(object.id+'','img_en')} " target="_blank"><img src="@{attachment(object.id+'','img_en')}" /></a>
+        <a href="${object.img_link}" target="_blank"><img src="${object.img_link}"/></a>
         #{/else}
             </div>
           </div>
@@ -136,7 +136,7 @@
               <h3 class="panel-title">Synonyms</h3>
             </div>
             <div class="panel-body">
-              ${object.synonyms_en}
+              ${object.synonyms}
             </div>
           </div>
         </div><!-- /.col-sm-4 -->
@@ -147,7 +147,7 @@
               <h3 class="panel-title">Chemical Formula</h3>
             </div>
             <div class="panel-body">
-              ${object.chemical_formula_en}
+              ${object.chemical_formula}
             </div>
             </div>
         </div><!-- /.col-sm-4 -->
@@ -158,7 +158,7 @@
 					<h3 class="panel-title">Average Molecular Weight</h3>
 	            </div>
 				<div class="panel-body">
-					${object.weight_en}
+					${object.weight}
 				</div>
 			</div>
 		</div><!-- /.col-sm-4 -->
@@ -169,7 +169,7 @@
               <h3 class="panel-title">Chemical IUPAC Name</h3>
             </div>
             <div class="panel-body">
-              ${object.iupac_en}
+              ${object.iupac}
             </div>
             </div>
         </div><!-- /.col-sm-4 -->
@@ -180,7 +180,7 @@
               <h3 class="panel-title">CAS Registry Number</h3>
             </div>
             <div class="panel-body">
-              ${object.cas_en}
+              ${object.cas}
             </div>
             </div>
         </div><!-- /.col-sm-4 -->
@@ -191,7 +191,7 @@
               <h3 class="panel-title">InChI Identifier</h3>
             </div>
             <div class="panel-body">
-              ${object.inchi_identifier_en}
+              ${object.inchi_identifier}
             </div>
             </div>
         </div><!-- /.col-sm-4 -->
@@ -202,7 +202,7 @@
               <h3 class="panel-title">InChI Key</h3>
             </div>
             <div class="panel-body">
-              ${object.inchi_key_en}
+              ${object.inchi_key}
             </div>
             </div>
         </div><!-- /.col-sm-4 -->
@@ -213,7 +213,7 @@
               <h3 class="panel-title">Smiles Canonical</h3>
             </div>
             <div class="panel-body">
-              ${object.smiles_canonical_en}
+              ${object.smiles_canonical}
             </div>
             </div>
         </div><!-- /.col-sm-4 -->
@@ -224,7 +224,7 @@
               <h3 class="panel-title">Smiles Isomeric</h3>
             </div>
             <div class="panel-body">
-              ${object.smiles_isomeric_en}
+              ${object.smiles_isomeric}
             </div>
             </div>
         </div><!-- /.col-sm-4 -->
@@ -244,7 +244,7 @@
               <h3 class="panel-title">Kingdom</h3>
             </div>
             <div class="panel-body">
-              ${object.kingdom_en}
+              ${object.kingdom}
             </div>
             </div>
         </div><!-- /.col-sm-4 -->
@@ -255,7 +255,7 @@
               <h3 class="panel-title">Super Class</h3>
             </div>
             <div class="panel-body">
-              ${object.super_class_en}
+              ${object.super_class}
             </div>
             </div>
         </div><!-- /.col-sm-4 -->
@@ -266,7 +266,7 @@
               <h3 class="panel-title">Class</h3>
             </div>
             <div class="panel-body">
-              ${object.class_en}
+              ${object.class}
             </div>
             </div>
         </div><!-- /.col-sm-4 -->
@@ -277,7 +277,7 @@
               <h3 class="panel-title">Sub Class</h3>
             </div>
             <div class="panel-body">
-              ${object.sub_class_en}
+              ${object.sub_class}
             </div>
             </div>
         </div><!-- /.col-sm-4 -->
@@ -288,7 +288,7 @@
               <h3 class="panel-title">	 Parent</h3>
             </div>
             <div class="panel-body">
-              ${object.direct_parent_en}
+              ${object.direct_parent}
             </div>
             </div>
         </div><!-- /.col-sm-4 -->
@@ -299,7 +299,7 @@
               <h3 class="panel-title">Alternative Parents</h3>
             </div>
             <div class="panel-body">
-              ${object.alternative_parents_en}
+              ${object.alternative_parents}
             </div>
             </div>
         </div><!-- /.col-sm-4 -->
@@ -310,7 +310,7 @@
               <h3 class="panel-title">Molecular Framework</h3>
             </div>
             <div class="panel-body">
-              ${object.molecular_framework_en}
+              ${object.molecular_framework}
             </div>
             </div>
         </div><!-- /.col-sm-4 -->
@@ -321,7 +321,7 @@
               <h3 class="panel-title">Substituents</h3>
             </div>
             <div class="panel-body">
-              ${object.substituents_en}
+              ${object.substituents}
             </div>
             </div>
         </div><!-- /.col-sm-4 -->
@@ -332,7 +332,7 @@
               <h3 class="panel-title">External Descriptors</h3>
             </div>
             <div class="panel-body">
-              ${object.external_descriptors_en}
+              ${object.external_descriptors}
             </div>
             </div>
         </div><!-- /.col-sm-4 -->
@@ -351,7 +351,7 @@
 				<h3 class="panel-title">Appearance</h3>
             </div>
 			<div class="panel-body">
-				${object.appearance_en}
+				${object.appearance}
 			</div>
 		</div>
 	</div><!-- /.col-sm-4 -->
@@ -362,7 +362,7 @@
 				<h3 class="panel-title">Melting Point</h3>
             </div>
 			<div class="panel-body">
-				${object.melting_point_en}
+				${object.melting_point}
 			</div>
 		</div>
 	</div><!-- /.col-sm-4 -->
@@ -373,7 +373,7 @@
 				<h3 class="panel-title">Boiling Point</h3>
             </div>
 			<div class="panel-body">
-				${object.boiling_point_en}
+				${object.boiling_point}
 			</div>
 		</div>
 	</div><!-- /.col-sm-4 -->
@@ -384,7 +384,7 @@
 				<h3 class="panel-title">Density</h3>
             </div>
 			<div class="panel-body">
-				${object.density_en}
+				${object.density}
 			</div>
 		</div>
 	</div><!-- /.col-sm-4 -->
@@ -395,7 +395,7 @@
 				<h3 class="panel-title">Flash Point</h3>
             </div>
 			<div class="panel-body">
-				${object.flash_point_en}
+				${object.flash_point}
 			</div>
 		</div>
 	</div><!-- /.col-sm-4 -->
@@ -406,7 +406,7 @@
 				<h3 class="panel-title">Solubility</h3>
             </div>
 			<div class="panel-body">
-				${object.solubility_en}
+				${object.solubility}
 			</div>
 		</div>
 	</div><!-- /.col-sm-4 -->
@@ -417,7 +417,7 @@
 				<h3 class="panel-title">Specific Gravity</h3>
             </div>
 			<div class="panel-body">
-				${object.specific_gravity_en}
+				${object.specific_gravity}
 			</div>
 		</div>
 	</div><!-- /.col-sm-4 -->
@@ -428,7 +428,7 @@
 				<h3 class="panel-title">Vapour Pressure</h3>
             </div>
 			<div class="panel-body">
-				${object.vapour_pressure_en}
+				${object.vapour_pressure}
 			</div>
 		</div>
 	</div><!-- /.col-sm-4 -->
@@ -459,7 +459,7 @@
 				<h3 class="panel-title">Route of Exposure</h3>
             </div>
 			<div class="panel-body">
-				${object.route_of_exposure_en}
+				${object.route_of_exposure}
 			</div>
 		</div>
 	</div><!-- /.col-sm-4 -->
@@ -470,7 +470,7 @@
 				<h3 class="panel-title">Mechanism of Action</h3>
             </div>
 			<div class="panel-body">
-				${object.mechanism_of_action_en}
+				${object.mechanism_of_action}
 			</div>
 		</div>
 	</div><!-- /.col-sm-4 -->
@@ -481,7 +481,7 @@
 				<h3 class="panel-title">Interacting Proteins</h3>
             </div>
 			<div class="panel-body">
-				${object.interacting_proteins_en}
+				${object.interacting_proteins}
 			</div>
 		</div>
 	</div><!-- /.col-sm-4 -->
@@ -492,7 +492,7 @@
 				<h3 class="panel-title">Metabolism</h3>
             </div>
 			<div class="panel-body">
-				${object.metabolism_en}
+				${object.metabolism}
 			</div>
 		</div>
 	</div><!-- /.col-sm-4 -->
@@ -503,7 +503,7 @@
 				<h3 class="panel-title">Toxicity Values</h3>
             </div>
 			<div class="panel-body">
-				${object.toxicity_en}
+				${object.toxicity}
 			</div>
 		</div>
 	</div><!-- /.col-sm-4 -->
@@ -514,7 +514,7 @@
 				<h3 class="panel-title">Lethal Dose</h3>
             </div>
 			<div class="panel-body">
-				${object.lethaldose_en}
+				${object.lethaldose}
 			</div>
 		</div>
 	</div><!-- /.col-sm-4 -->
@@ -525,7 +525,7 @@
 				<h3 class="panel-title">Carcinogenicity</h3>
             </div>
 			<div class="panel-body">
-				${object.carcinogenicity_en}
+				${object.carcinogenicity}
 			</div>
 		</div>
 	</div><!-- /.col-sm-4 -->
@@ -536,7 +536,7 @@
 				<h3 class="panel-title">Uses/Sources</h3>
             </div>
 			<div class="panel-body">
-				${object.use_source_en}
+				${object.use_source}
 			</div>
 		</div>
 	</div><!-- /.col-sm-4 -->
@@ -547,7 +547,7 @@
 				<h3 class="panel-title">Minimum Risk Level</h3>
             </div>
 			<div class="panel-body">
-				${object.min_risk_level_en}
+				${object.min_risk_level}
 			</div>
 		</div>
 	</div><!-- /.col-sm-4 -->
@@ -558,7 +558,7 @@
 				<h3 class="panel-title">Health Effects</h3>
             </div>
 			<div class="panel-body">
-				${object.health_effects_en}
+				${object.health_effects}
 			</div>
 		</div>
 	</div><!-- /.col-sm-4 -->
@@ -569,7 +569,7 @@
 				<h3 class="panel-title">Symptoms</h3>
             </div>
 			<div class="panel-body">
-				${object.symptoms_en}
+				${object.symptoms}
 			</div>
 		</div>
 	</div><!-- /.col-sm-4 -->
@@ -580,7 +580,7 @@
 				<h3 class="panel-title">Treatment</h3>
             </div>
 			<div class="panel-body">
-				${object.treatment_en}
+				${object.treatment}
 			</div>
 		</div>
 	</div><!-- /.col-sm-4 -->
@@ -594,7 +594,7 @@
 			#{if object.targets!=null && object.targets.size()>0}
 			  %{count = 1}%
 			#{list items:object.targets, as:'c'}
-				${count}. ${c.name_en}<br/>&nbsp;&nbsp;&nbsp;&nbsp;UniProt ID:${c.uniprot}%{count++}%<br/>
+				${count}. ${c.name}<br/>&nbsp;&nbsp;&nbsp;&nbsp;UniProt ID:${c.uniprot}%{count++}%<br/>
 			#{/list}
 			#{/if}
 			#{else}
@@ -618,7 +618,7 @@
 				<h3 class="panel-title">DrugBank ID</h3>
             </div>
 			<div class="panel-body">
-				<a href="${object.drugbank_link_en}" target="_blank">${object.drugbank_en}</a>
+				<a href="${object.drugbank_link}" target="_blank">${object.drugbank}</a>
 			</div>
 		</div>
 	</div><!-- /.col-sm-4 -->
@@ -629,7 +629,7 @@
 				<h3 class="panel-title">PubChem Compound ID</h3>
             </div>
 			<div class="panel-body">
-				<a href="${object.pubchem_link_en}" target="_blank">${object.pubchem_en}</a>
+				<a href="${object.pubchem_link}" target="_blank">${object.pubchem}</a>
 			</div>
 		</div>
 	</div><!-- /.col-sm-4 -->
@@ -640,7 +640,7 @@
 				<h3 class="panel-title">KEGG ID</h3>
             </div>
 			<div class="panel-body">
-				<a href="${object.kegg_compound_link_en}" target="_blank">${object.kegg_compound_en}</a>
+				<a href="${object.kegg_compound_link}" target="_blank">${object.kegg_compound}</a>
 			</div>
 		</div>
 	</div><!-- /.col-sm-4 -->
@@ -651,7 +651,7 @@
 				<h3 class="panel-title">UniProt ID</h3>
             </div>
 			<div class="panel-body">
-				<a href="${object.uniprot_link_en}" target="_blank">${object.uniprot_en}</a>
+				<a href="${object.uniprot_link}" target="_blank">${object.uniprot}</a>
 			</div>
 		</div>
 	</div><!-- /.col-sm-4 -->
@@ -662,7 +662,7 @@
 				<h3 class="panel-title">OMIM ID</h3>
             </div>
 			<div class="panel-body">
-				<a href="${object.omim_link_en}" target="_blank">${object.omim_en}</a>
+				<a href="${object.omim_link}" target="_blank">${object.omim}</a>
 			</div>
 		</div>
 	</div><!-- /.col-sm-4 -->
@@ -673,7 +673,7 @@
 				<h3 class="panel-title">ChEBI ID</h3>
             </div>
 			<div class="panel-body">
-				<a href="${object.chebi_link_en}" target="_blank">${object.chebi_en}</a>
+				<a href="${object.chebi_link}" target="_blank">${object.chebi}</a>
 			</div>
 		</div>
 	</div><!-- /.col-sm-4 -->
@@ -684,7 +684,7 @@
 				<h3 class="panel-title">BioCyc ID</h3>
             </div>
 			<div class="panel-body">
-				<a href="${object.biocyc_link_en}" target="_blank">${object.biocyc_en}</a>
+				<a href="${object.biocyc_link}" target="_blank">${object.biocyc}</a>
 			</div>
 		</div>
 	</div><!-- /.col-sm-4 -->
@@ -695,7 +695,7 @@
 				<h3 class="panel-title">CTD ID</h3>
             </div>
 			<div class="panel-body">
-				<a href="${object.ctd_link_en}" target="_blank">${object.ctd_en}</a>
+				<a href="${object.ctd_link}" target="_blank">${object.ctd}</a>
 			</div>
 		</div>
 	</div><!-- /.col-sm-4 -->
@@ -706,7 +706,7 @@
 				<h3 class="panel-title">Stitch ID</h3>
             </div>
 			<div class="panel-body">
-				<a href="${object.stitch_link_en}" target="_blank">${object.stitch_en}</a>
+				<a href="${object.stitch_link}" target="_blank">${object.stitch}</a>
 			</div>
 		</div>
 	</div><!-- /.col-sm-4 -->
@@ -717,7 +717,7 @@
 				<h3 class="panel-title">PDB ID</h3>
             </div>
 			<div class="panel-body">
-				<a href="${object.pdb_en}" target="_blank">${object.pdb_en}</a>
+				<a href="${object.pdb}" target="_blank">${object.pdb}</a>
 			</div>
 		</div>
 	</div><!-- /.col-sm-4 -->
@@ -728,7 +728,7 @@
 				<h3 class="panel-title">ACToR ID</h3>
             </div>
 			<div class="panel-body">
-				<a href="${object.actor_link_en}" target="_blank">${object.actor_en}</a>
+				<a href="${object.actor_link}" target="_blank">${object.actor}</a>
 			</div>
 		</div>
 	</div><!-- /.col-sm-4 -->
@@ -739,7 +739,7 @@
 				<h3 class="panel-title">Wikipedia Link</h3>
             </div>
 			<div class="panel-body">
-				<a href="${object.wikipedia_en}" target="_blank">${object.wikipedia_en}</a>
+				<a href="${object.wikipedia}" target="_blank">${object.wikipedia}</a>
 			</div>
 		</div>
 	</div><!-- /.col-sm-4 -->
@@ -750,7 +750,7 @@
 				<h3 class="panel-title">Supertoxic</h3>
             </div>
 			<div class="panel-body">
-				${object.supertoxic_en}
+				${object.supertoxic}
 			</div>
 		</div>
 	</div><!-- /.col-sm-4 -->
@@ -766,8 +766,8 @@
         <div class="well">
         <p>
         %{String[] arr;count2 = 1;
-           if (object.reference_en != null && object.reference_en != ''){
-        	arr = object.reference_en.split("&br");
+           if (object.reference != null && object.reference != ''){
+        	arr = object.reference.split("&br");
         	}
         	
         	for(String s:arr){

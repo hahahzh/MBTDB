@@ -1,0 +1,15 @@
+<form action="/dataprocess" method="post" accept-charset="utf-8" enctype="multipart/form-data" >
+						<label>数据类型</label>
+<select name="type">
+  <option value ="1">毒性数据</option>
+  <option value ="2">靶标数据</option>
+</select>
+                        <label>语言类型</label>
+<select name="lang">
+  <option value ="1">中文</option>
+  <option value ="2">英文</option>
+</select>
+<label>录入者</label><input type="text" name="auth"  />
+						<input type="file" name="datafile"  />
+                        <input type="submit" id="signin" value="上传" />
+</form>

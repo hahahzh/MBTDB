@@ -6,45 +6,50 @@ import java.util.List;
 import com.google.code.morphia.annotations.Entity;
 import com.google.code.morphia.annotations.Reference;
 
+import controllers.CRUD.Hidden;
+import play.data.validation.MaxSize;
 import play.data.validation.Required;
-import play.db.jpa.Blob;
+import play.modules.morphia.Blob;
 import play.modules.morphia.Model;
 
 
 @Entity(value = "sea_life_en")
 public class SeaLife_EN extends Model {
 
-	public Date created_at;
-	
-	public Date updated_at;
+	@Hidden
+	public Long _created;
+	@Hidden
+	public Long _modified;
 	
 	@Required
+	@MaxSize(100)
 	public String title;
-	
+	@Required
+	@MaxSize(200)
 	public String common_name; // 常用名
-	
+	@MaxSize(3000)
 	public String description; // 概述
 	public String type; // 化学类别
 	public Blob img;
-
+	@MaxSize(300)
 	public String img_link;
-	
+	@MaxSize(2000)
 	public String synonyms; // 同系物
-	
+	@MaxSize(200)
 	public String chemical_formula;
 	public String weight;
-	
+	@MaxSize(1000)
 	public String iupac;
-	
+	@MaxSize(100)
 	public String cas;
-	
+	@MaxSize(1000)
 	public String inchi_identifier;
 	public String inchi_key;
 	public String smiles_isomeric;
 	public String smiles_canonical;
-	
+	@MaxSize(200)
 	public String mol;
-	
+	@MaxSize(200)
 	public String organism; // 组织器官
 	public String kingdom;
 	public String super_class;
@@ -55,89 +60,90 @@ public class SeaLife_EN extends Model {
 	public String molecular_framework;
 	public String substituents;
 	public String external_descriptors;
-	
+	@MaxSize(100)
 	public String appearance; // 外观（appearance）
-	
+	@MaxSize(100)
 	public String melting_point;
-	
+	@MaxSize(100)
 	public String boiling_point;
-	
+	@MaxSize(100)
 	public String density;
-	
+	@MaxSize(100)
 	public String flash_point;
-	
+	@MaxSize(100)
 	public String solubility;
-	
+	@MaxSize(100)
 	public String specific_gravity;
-	
+	@MaxSize(100)
 	public String vapour_pressure;
 	public String predicted_logP;
-	
+	@MaxSize(200)
 	public String route_of_exposure; // 暴露途径（route_of_exposure）
-	
+	@MaxSize(5000)
 	public String mechanism_of_action; // 作用机制（mechanism_of_action）
 	public String interacting_proteins; // 相互作用蛋白（interacting_proteins）
-	
+	@MaxSize(5000)
 	public String metabolism; // 代谢（metabolism）
-	
+	@MaxSize(200)
 	public String toxicity; // 毒性（toxicity）
-	
+	@MaxSize(200)
 	public String lethaldose; // 致死剂量（lethal dose）
 	public String carcinogenicity; // 致癌性（carcinogenicity）
 	public String use_source; // 用途（use_source）
-	
+	@MaxSize(200)
 	public String min_risk_level; // 最小的风险水平（min_risk_level）
-	
+	@MaxSize(5000)
 	public String health_effects; // （健康的影响（health_effects）
-	
+	@MaxSize(5000)
 	public String symptoms; // 症状（symptoms）
-	
+	@MaxSize(5000)
 	public String treatment; // 治疗（treatment）
 	@Reference
     public List<Target_EN> targets; // 靶点（targets）
-	
+    @MaxSize(50)
 	public String drugbank;
 	public String drugbank_link;
-	
+	@MaxSize(50)
 	public String pubchem;
 	public String pubchem_link;
-	
+	@MaxSize(50)
 	public String kegg_compound;
 	public String kegg_compound_link;
-	
+	@MaxSize(50)
 	public String uniprot;
 	public String uniprot_link;
-	
+	@MaxSize(50)
 	public String omim;
 	public String omim_link;
-	
+	@MaxSize(50)
 	public String chebi;
 	public String chebi_link;
-	
+	@MaxSize(50)
 	public String biocyc;
 	public String biocyc_link;
-	
+	@MaxSize(50)
 	public String ctd;
 	public String ctd_link;
-	
+	@MaxSize(50)
 	public String stitch;
 	public String stitch_link;
-	
+	@MaxSize(50)
 	public String pdb;
 	public String pdb_link;
-	
+	@MaxSize(50)
 	public String actor;
 	public String actor_link;
-	
+	@MaxSize(200)
 	public String wikipedia;
-	
+	@MaxSize(50)
 	public String supertoxic;
-	
+	@MaxSize(1000)
 	public String reference;
 	public Boolean isShow;
 	@Required
+	@Hidden
 	public String auth;
-	
+	public SeaLife_EN(){}
 	 public SeaLife_EN(Date created_at,
 			 Date updated_at,
 			 String title,
@@ -214,8 +220,6 @@ public class SeaLife_EN extends Model {
 			 String reference,
 			 Boolean isShow,
 			 String auth) {
-		 this.created_at = created_at;
-		 this.updated_at = updated_at;
 		 this.title = title;
 		 this.common_name = common_name;
 		 this.description = description;
